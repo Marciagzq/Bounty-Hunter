@@ -1,4 +1,5 @@
 import React from "react";
+import {connect} from "react-redux";
 import {spriteSize} from "../../Config/constants"
 import "./styles.css"
 
@@ -50,5 +51,12 @@ function Map(props) {
         </div>
     )
 }
+//connects the state from map to the store
+function mapStateToProps(state) {
+    return {
+        tiles: state.map.tiles
+    }
+}
 
-export default Map;
+//connect takes two arguments
+export default connect(mapStateToProps)(Map);

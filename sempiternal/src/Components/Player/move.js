@@ -4,8 +4,8 @@ import { spriteSize, mapWidth, mapHeight } from "../../Config/constants";
 export default function handleMovement(player) {
 
     //gets the new position of the player when a direction is passed in through handlekeydown
-    function getNewPosition(direction) {
-        const oldPos = store.getState().player.position
+    function getNewPosition(oldPos, direction) {
+        
         switch (direction) {
             case "West":
                 return [oldPos[0] - spriteSize, oldPos[1]]
@@ -22,18 +22,34 @@ export default function handleMovement(player) {
     function observeBoundaries(oldPos, newPos) {
         return (newPos[0] >= 0 && newPos[0] <= mapWidth - spriteSize) &&
             (newPos[1] >= 0 && newPos[1] <= mapHeight - spriteSize)
-            ? newPos : oldPos
+    }
+
+    //checks if the tile the player is moving is an obstacle
+    function observeObstacles(oldPos, newPos) {
+        const tiles = store.getState().map.tiles
+        const y = newPos[1] / spriteSize;
+        const x = newPos[0] / spriteSize;
+        const nextTile = tiles[y][x]
+        return nextTile < 5
     }
 
     //dispatches the getNewPosition function to the store named as move_Player
-    function dispatchMove(direction) {
-        const oldPos = store.getState().player.position
+    function dispatchMove(newPos) {
         store.dispatch({
             type: "move_Player",
             payload: {
-                position: observeBoundaries(oldPos, getNewPosition(direction))
+                position: newPos,
             }
         })
+    }
+
+    function attemptMove(direction) {
+        const oldPos = store.getState().player.position
+        const newPos = getNewPosition(oldPos, direction)
+
+        if(observeBoundaries(oldPos, newPos) && observeObstacles(oldPos, newPos)) {
+            dispatchMove(newPos)
+        }
     }
 
     function handleKeyDown(e) {
@@ -42,16 +58,16 @@ export default function handleMovement(player) {
         //reads movement keys and returns the direction of the movement
         switch (e.keyCode) {
             case 37:
-                return dispatchMove("West");
+                return attemptMove("West");
 
             case 38:
-                return dispatchMove("North");
+                return attemptMove("North");
 
             case 39:
-                return dispatchMove("East");
+                return attemptMove("East");
 
             case 40:
-                return dispatchMove("South");
+                return attemptMove("South");
             default:
                 console.log(e.keyCode)
         }
