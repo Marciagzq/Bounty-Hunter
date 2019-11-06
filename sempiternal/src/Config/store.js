@@ -1,13 +1,17 @@
 import { createStore, combineReducers} from "redux";
+import mageReducer from "../Components/Monsters/Mage/reducer"
 import playerReducer from "../Components/Player/reducer"
 import mapReducer from "../Components/Map/reducer"
+import worldReducer from "../Components/World/reducer"
 
 //where states are saved with corresponding keys
 //They map state and dispatch to props
 const rootReducer = combineReducers({
     
     player: playerReducer,
-    map: mapReducer
+    mage: mageReducer,
+    map: mapReducer,
+    world: worldReducer
 })
 
 const store = createStore(

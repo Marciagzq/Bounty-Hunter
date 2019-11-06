@@ -1,7 +1,8 @@
 import React from "react";
-import Player from "../Player/player"
+import Mage from "../Monsters/Mage/mage";
+import Player from "../Player/player";
 import Map from "../Map/index";
-import { tiles }from "../../data/maps/1/index"
+import { tiles }from "../../data/maps/1/index";
 import store from "../../Config/store";
 
 function World(props) {
@@ -23,6 +24,7 @@ function World(props) {
         >
             <Map />
             <Player />
+            <Mage />
         </div>
     )
 }
