@@ -61,15 +61,18 @@ export default function move(monster) {
     const oldPos = store.getState().mage.position
     const newPos = getNewPosition(oldPos, direction)
 
-    if(observeBoundaries(oldPos, newPos) && observeObstacles(oldPos, newPos)) {
-        checkMove(direction, newPos)
+    if (observeBoundaries(oldPos, newPos) && observeObstacles(oldPos, newPos)) {
+      checkMove(direction, newPos)
     }
-}
+  }
 
   function checkMove() {
     const playerPos = store.getState().player.position
     const magePos = store.getState().mage.position
     const direction = store.getState().mage.direction
+    const currentCD = store.getState().mage.currentCD
+    const maxCD = store.getState().mage.maxCD
+    const attacking = store.getState().mage.attacking
 
     if (playerPos[1] != magePos[1]) {
 
@@ -109,36 +112,60 @@ export default function move(monster) {
       }
     } else if (playerPos[0] == magePos[0] && playerPos[1] == magePos[1]) {
       const playerDir = store.getState().player.direction
-      
-      if (playerDir == "East"){
+
+      if (playerDir == "East") {
         return {
           position: [magePos[0] + (2 * spriteSize), magePos[1]],
           direction: "West"
         }
-      } else if (playerDir == "West"){
+      } else if (playerDir == "West") {
         return {
           position: [magePos[0] - (2 * spriteSize), magePos[1]],
           direction: "East"
         }
-      } else if (playerDir == "South"){
+      } else if (playerDir == "South") {
         return {
           position: [magePos[0], magePos[1] + (2 * spriteSize)],
           direction//: "South"
         }
-      } else if (playerDir == "North"){
+      } else if (playerDir == "North") {
         return {
           position: [magePos[0], magePos[1] - (2 * spriteSize)],
           direction//: "North"
         }
       }
-      
+
     }
     else {
-      console.log("attack!!!")
-      return {
-        position: magePos,
-        direction
+      if (currentCD == 0) {
+        console.log("attack!!!")
+        return {
+          position: magePos,
+          direction,
+          currentCD: 1,
+          attacking: true,
+        }
       }
+      else if (currentCD !== 0 && currentCD !== maxCD) {
+        console.log("Attack is on cd")
+        const newCD = currentCD + 1;
+        return {
+          position: magePos,
+          direction,
+          currentCD: newCD,
+          attacking: false,
+        }
+      }
+      else if (currentCD == maxCD) {
+        console.log("CD reset")
+        return {
+          position: magePos,
+          direction,
+          currentCD: 0,
+        }
+      }
+
+
 
     }
 
