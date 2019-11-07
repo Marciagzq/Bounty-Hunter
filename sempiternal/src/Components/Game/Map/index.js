@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
-import {spriteSize} from "../../Config/constants"
+import {spriteSize} from "../../../Config/constants"
 import "./styles.css"
 
 function getTileSprite(type) {
@@ -25,7 +25,10 @@ function MapTile(props) {
 }
 
 function MapRow(props) {
-    return <div className="row">
+    return <div className="row"
+    style={{
+        height: spriteSize
+    }}>
         {
             props.tiles.map(tile => <MapTile tile={tile} />)
         }

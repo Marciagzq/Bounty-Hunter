@@ -2,8 +2,8 @@ import React from "react";
 import Mage from "../Monsters/Mage/mage";
 import Player from "../Player/player";
 import Map from "../Map/index";
-import { tiles }from "../../data/maps/1/index";
-import store from "../../Config/store";
+import { tiles }from "../../../data/maps/1/index";
+import store from "../../../Config/store";
 
 function World(props) {
     store.dispatch({

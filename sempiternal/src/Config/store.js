@@ -1,8 +1,8 @@
 import { createStore, combineReducers} from "redux";
-import mageReducer from "../Components/Monsters/Mage/reducer"
-import playerReducer from "../Components/Player/reducer"
-import mapReducer from "../Components/Map/reducer"
-import worldReducer from "../Components/World/reducer"
+import mageReducer from "../Components/Game/Monsters/Mage/reducer"
+import playerReducer from "../Components/Game/Player/reducer"
+import mapReducer from "../Components/Game/Map/reducer"
+import worldReducer from "../Components/Game/World/reducer"
 
 //where states are saved with corresponding keys
 //They map state and dispatch to props

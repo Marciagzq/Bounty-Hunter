@@ -1,6 +1,6 @@
 import React from "react";
-import store from "../../Config/store";
-import { spriteSize, mapWidth, mapHeight } from "../../Config/constants";
+import store from "../../../Config/store";
+import { spriteSize, mapWidth, mapHeight } from "../../../Config/constants";
 
 export default function handleMovement(player) {
 

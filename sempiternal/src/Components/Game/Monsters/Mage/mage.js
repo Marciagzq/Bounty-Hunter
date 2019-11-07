@@ -1,20 +1,21 @@
 import React from "react";
 //this import connects the store to our component (Mage)
 import { connect } from "react-redux";
-import mageSprite from "./mageLeft.gif";
-import move from "../move";
+import mageSpriteLeft from "./mageLeft.gif";
+import mageSpriteRight from "./mageRight.gif";
+import move from "./move";
 
 
 function Mage(props)  {
+    console.log(props.maxCD)
     return (
         //Styling for Mage sprite that cuts the initial sprite from the sprite tile
         <div 
             style={{
                 position: "absolute",
                 top: props.position[1] + 6,
-                left: props.position[0],
-                backgroundImage: `url('${mageSprite}')`,
-                backgroundPosition: props.spriteLocation,
+                left: props.position[0] + 4,
+                backgroundImage: `url('${props.direction == "West" ? mageSpriteLeft : mageSpriteRight}')`,
                 width: "40px",
                 height: "40px",
             }}
