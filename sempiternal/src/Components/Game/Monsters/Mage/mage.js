@@ -1,8 +1,10 @@
 import React from "react";
 //this import connects the store to our component (Mage)
 import { connect } from "react-redux";
-import mageSpriteLeft from "./mageLeft.gif";
-import mageSpriteRight from "./mageRight.gif";
+import mageSpriteLeft from "./Assets/mageLeft.gif";
+import mageSpriteRight from "./Assets/mageRight.gif";
+import mageAttackLeft from "./Assets/mageAttackLeft.gif";
+import mageAttackRight from "./Assets/mageAttackRight.gif";
 import move from "./move";
 
 
@@ -15,7 +17,7 @@ function Mage(props)  {
                 position: "absolute",
                 top: props.position[1] + 6,
                 left: props.position[0] + 4,
-                backgroundImage: `url('${props.direction == "West" ? mageSpriteLeft : mageSpriteRight}')`,
+                backgroundImage: `url('${props.attacking == true ? (props.direction == "West" ? mageAttackLeft : mageAttackRight) :(props.direction == "West" ? mageSpriteLeft : mageSpriteRight)}')`,
                 width: "40px",
                 height: "40px",
             }}

@@ -4,6 +4,7 @@ const initialState = {
     direction: "West",
     currentCD: 0,
     maxCD: 3,
+    attacking: false,
 }
 
 const mageReducer = (state = initialState, action) => {
