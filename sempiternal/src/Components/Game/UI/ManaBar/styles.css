@@ -10,7 +10,7 @@
 }
 
 .fillerMana {
-    background: blue;
+    background: rgb(0, 68, 255);
     height: 100%;
     border-radius: inherit;
     transition: width .2s ease-in;
