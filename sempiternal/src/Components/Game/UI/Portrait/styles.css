@@ -1,0 +1,6 @@
+.port {
+    position: relative;
+    height: 76.5px;
+    width: 100px;
+    background-image: url("./character.jpg");
+}

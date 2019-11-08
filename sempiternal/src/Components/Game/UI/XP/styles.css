@@ -1,15 +1,16 @@
-.healthBar {
+.xpBar {
     position: relative;
     height: 20px;
     width: 350px;
     margin-left: 150px;
+    margin-top: 5px;
     border-radius: 50px;
     border: 1px solid #333;
     background-color: white;
 }
 
-.filler {
-    background: red;
+.fillerXP {
+    background: yellow;
     height: 100%;
     border-radius: inherit;
     transition: width .2s ease-in;

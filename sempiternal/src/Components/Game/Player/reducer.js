@@ -11,6 +11,8 @@ const initialState = {
     mp: 20,
     maxmp: 20,
     lvl: 1,
+    xpLv: 20,
+    xp: 5,
 }
 
 const playerReducer = (state = initialState, action) => {
