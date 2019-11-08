@@ -45,7 +45,7 @@ function Map(props) {
                 width: "800px",
                 height: "400px",
                 backgroundColor: "green",
-                border: "4px solid white",
+                // border: "4px solid white",
             }}
         >
             {

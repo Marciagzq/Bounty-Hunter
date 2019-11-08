@@ -15,8 +15,8 @@ function Mage(props)  {
         <div 
             style={{
                 position: "absolute",
-                top: props.position[1] + 6,
-                left: props.position[0] + 4,
+                top: props.position[1],
+                left: props.position[0] ,
                 backgroundImage: `url('${props.attacking == true ? (props.direction == "West" ? mageAttackLeft : mageAttackRight) :(props.direction == "West" ? mageSpriteLeft : mageSpriteRight)}')`,
                 width: "40px",
                 height: "40px",

@@ -1,0 +1,16 @@
+.healthBar {
+    position: relative;
+    height: 20px;
+    width: 350px;
+    margin: auto;
+    border-radius: 50px;
+    border: 1px solid #333;
+    background-color: white;
+}
+
+.filler {
+    background: red;
+    height: 100%;
+    border-radius: inherit;
+    transition: width .2s ease-in;
+}
