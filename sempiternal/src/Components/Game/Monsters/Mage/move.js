@@ -3,15 +3,15 @@ import store from "../../../../Config/store";
 import { spriteSize, mapWidth, mapHeight } from "../../../../Config/constants";
 
 export default function move(monster) {
-  function switchFacing(direction) {
-
-  }
 
   setInterval(function () {
-    const newMageInfo = checkMove();//attemptMove(store.getState().mage.direction)
+    const dir = store.getState().mage.direction
+    console.log(dir)
+    // const newMageInfo = checkMove();
+    const newMageInfo = checkMove(dir)
     console.log('increment timer')
-    //attemptMove(store.getState().mage.direction);
-    checkMove();
+    checkMove(dir);
+    // checkMove();
     store.dispatch({
       type: 'INCREMENT_TIMER'
     })
@@ -26,15 +26,11 @@ export default function move(monster) {
 
     switch (direction) {
       case "West":
-        return {
-          position: [oldPos[0] - spriteSize, oldPos[1]],
-          direction: "West"
-        }
+        return [oldPos[0] - spriteSize, oldPos[1]]
+
       case "East":
-        return {
-          position: [oldPos[0] + spriteSize, oldPos[1]],
-          direction: "East"
-        }
+        return [oldPos[0] + spriteSize, oldPos[1]]
+
       case "North":
         return [oldPos[0], oldPos[1] - spriteSize]
       case "South":
@@ -57,81 +53,126 @@ export default function move(monster) {
     return nextTile < 5
   }
 
-  function attemptMove(direction) {
+  // function attemptMove(direction) {
+  //   const oldPos = store.getState().mage.position
+  //   const newPos = getNewPosition(oldPos, direction)
+  //   // console.log(oldPos)
+  //   // console.log(newPos)
+  //   // console.log(observeBoundaries(oldPos, newPos))
+  //   // console.log(observeObstacles(oldPos, newPos))
+
+
+  // }
+
+  function checkMove(direction) {
+    console.log("this is working")
     const oldPos = store.getState().mage.position
     const newPos = getNewPosition(oldPos, direction)
-
-    if (observeBoundaries(oldPos, newPos) && observeObstacles(oldPos, newPos)) {
-      checkMove(direction, newPos)
-    }
-  }
-
-  function checkMove() {
     const playerPos = store.getState().player.position
     const magePos = store.getState().mage.position
-    const direction = store.getState().mage.direction
+    // const direction = store.getState().mage.direction
     const currentCD = store.getState().mage.currentCD
     const maxCD = store.getState().mage.maxCD
     const attacking = store.getState().mage.attacking
 
     if (playerPos[1] != magePos[1]) {
-
+      console.log("hey")
       if (playerPos[1] > magePos[1]) {
-        return {
-          position: [magePos[0], magePos[1] + spriteSize],
-          direction//: "South"
+        console.log("below")
+        if (observeBoundaries(oldPos, newPos) && observeObstacles(oldPos, newPos)) {
+          console.log("below2")
+          return {
+            position: [magePos[0], magePos[1] + spriteSize],
+            direction: "South"
+          }
+        }
+        else {
+          return {
+            direction: "South"
+          }
         }
       }
       else if (playerPos[1] < magePos[1]) {
-        return {
-          position: [magePos[0], magePos[1] - spriteSize],
-          direction//: "North"
+        console.log("above")
+        if (observeBoundaries(oldPos, newPos) && observeObstacles(oldPos, newPos)) {
+          console.log("above2")
+          return {
+            position: [magePos[0], magePos[1] - spriteSize],
+            direction: "North"
+          }
+        }
+        else {
+          return {
+            direction: "North"
+          }
         }
       }
     }
     else if (playerPos[0] > magePos[0] + (3 * spriteSize)) {
-      return {
-        position: [magePos[0] + spriteSize, magePos[1]],
-        direction: "East"
+      if (observeBoundaries(oldPos, newPos) && observeObstacles(oldPos, newPos)) {
+        return {
+          position: [magePos[0] + spriteSize, magePos[1]],
+          direction: "East"
+        }
       }
     }
     else if (playerPos[0] < magePos[0] - (3 * spriteSize)) {
-      return {
-        position: [magePos[0] - spriteSize, magePos[1]],
-        direction: "West"
+      if (observeBoundaries(oldPos, newPos) && observeObstacles(oldPos, newPos)) {
+        return {
+          position: [magePos[0] - spriteSize, magePos[1]],
+          direction: "West"
+        }
       }
-    } else if (playerPos[0] < magePos[0] + (3 * spriteSize) && playerPos[0] > magePos[0]) {
-      return {
-        position: [magePos[0] - spriteSize, magePos[1]],
-        direction: "East"
+    }
+    else if (playerPos[0] < magePos[0] + (3 * spriteSize) && playerPos[0] > magePos[0]) {
+      if (observeBoundaries(oldPos, newPos) && observeObstacles(oldPos, newPos)) {
+        return {
+          position: [magePos[0] - spriteSize, magePos[1]],
+          direction: "East"
+        }
       }
-    } else if (playerPos[0] > magePos[0] - (3 * spriteSize) && playerPos[0] < magePos[0]) {
-      return {
-        position: [magePos[0] + spriteSize, magePos[1]],
-        direction: "West"
+    }
+    else if (playerPos[0] > magePos[0] - (3 * spriteSize) && playerPos[0] < magePos[0]) {
+      if (observeBoundaries(oldPos, newPos) && observeObstacles(oldPos, newPos)) {
+        return {
+          position: [magePos[0] + spriteSize, magePos[1]],
+          direction: "West"
+        }
       }
-    } else if (playerPos[0] == magePos[0] && playerPos[1] == magePos[1]) {
+    }
+    else if (playerPos[0] == magePos[0] && playerPos[1] == magePos[1]) {
       const playerDir = store.getState().player.direction
 
       if (playerDir == "East") {
-        return {
-          position: [magePos[0] + (2 * spriteSize), magePos[1]],
-          direction: "West"
+        if (observeBoundaries(oldPos, newPos) && observeObstacles(oldPos, newPos)) {
+          return {
+            position: [magePos[0] + (2 * spriteSize), magePos[1]],
+            direction: "West"
+          }
         }
-      } else if (playerDir == "West") {
-        return {
-          position: [magePos[0] - (2 * spriteSize), magePos[1]],
-          direction: "East"
+      }
+      else if (playerDir == "West") {
+        if (observeBoundaries(oldPos, newPos) && observeObstacles(oldPos, newPos)) {
+          return {
+            position: [magePos[0] - (2 * spriteSize), magePos[1]],
+            direction: "East"
+          }
         }
-      } else if (playerDir == "South") {
-        return {
-          position: [magePos[0], magePos[1] + (2 * spriteSize)],
-          direction//: "South"
+      }
+      else if (playerDir == "South") {
+        if (observeBoundaries(oldPos, newPos) && observeObstacles(oldPos, newPos)) {
+          return {
+            position: [magePos[0], magePos[1] + (2 * spriteSize)],
+            direction//: "South"
+          }
         }
-      } else if (playerDir == "North") {
-        return {
-          position: [magePos[0], magePos[1] - (2 * spriteSize)],
-          direction//: "North"
+      }
+      else if (playerDir == "North") {
+        if (observeBoundaries(oldPos, newPos) && observeObstacles(oldPos, newPos)) {
+          return {
+            position: [magePos[0], magePos[1] - (2 * spriteSize)],
+            direction//: "North"
+          }
         }
       }
 

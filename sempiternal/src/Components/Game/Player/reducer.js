@@ -5,7 +5,7 @@ const initialState = {
     spriteLocation: "0px 0px",
     direction: "east",
     walkIndex: 0,
-    hp: 15,
+    hp: 7.5,
     maxhp: 15,
     ad: 3,
     mp: 20,

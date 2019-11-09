@@ -4,7 +4,8 @@
     width: 350px;
     margin-left: 150px;
     border-radius: 50px;
-    border: 1px solid #333;
+    overflow: hidden;
+    border: 2px solid #333;
     background-color: white;
 }
 

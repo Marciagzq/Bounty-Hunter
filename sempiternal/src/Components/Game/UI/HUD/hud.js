@@ -5,14 +5,16 @@ import XPBar from "../XP/xp.js";
 import Portrait from "../Portrait/port.js";
 import "./styles.css"
 
-function HUD () {
+function HUD() {
     return (
         <div className="hud">
             {/* <Portrait /> */}
-            <HealthBar />
-            <ManaBar />
-            <XPBar />
-            
+            <div className="bars">
+                <HealthBar />
+                <ManaBar />
+                <XPBar />
+            </div>
+
         </div>
     )
 }
