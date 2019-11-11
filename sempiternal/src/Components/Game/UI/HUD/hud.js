@@ -8,7 +8,7 @@ import "./styles.css"
 function HUD () {
     return (
         <div className="hud">
-            {/* <Portrait /> */}
+            <Portrait />
             <HealthBar />
             <ManaBar />
             <XPBar />
