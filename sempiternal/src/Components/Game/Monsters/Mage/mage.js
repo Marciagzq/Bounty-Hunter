@@ -6,10 +6,49 @@ import mageSpriteRight from "./Assets/mageRight.gif";
 import mageAttackLeft from "./Assets/mageAttackLeft.gif";
 import mageAttackRight from "./Assets/mageAttackRight.gif";
 import move from "./move";
+import store from "../../../../Config/store"
+import player from "../../Player/player";
 
 
 function Mage(props)  {
-    console.log(props.maxCD)
+    
+    
+    function pickSprite(props) {
+        const playerPos = store.getState().player.position
+        const magePos = store.getState().mage.position
+        if (props.attacking) {
+            if (props.direction == "West") {
+                return mageAttackLeft
+            }
+            else if (props.direction == "East") {
+                return mageAttackRight
+            }
+            else if (props.direction == "North"  || props.direction == "South"){
+                if (playerPos[0] < magePos[0]) {
+                    return mageAttackLeft
+                } 
+                else {
+                    return mageAttackRight
+                }
+            }
+        }
+        else {
+            if (props.direction == "West") {
+                return mageSpriteLeft
+            }
+            else if (props.direction == "East") {
+                return mageSpriteRight
+            }
+            else if (props.direction == "North"  || props.direction == "South"){
+                if (playerPos[0] < magePos[0]) {
+                    return mageSpriteLeft
+                } 
+                else {
+                    return mageSpriteRight
+                }
+            }
+        }
+    }
     return (
         //Styling for Mage sprite that cuts the initial sprite from the sprite tile
         <div 
@@ -17,7 +56,7 @@ function Mage(props)  {
                 position: "absolute",
                 top: props.position[1],
                 left: props.position[0] ,
-                backgroundImage: `url('${props.attacking == true ? (props.direction == "West" ? mageAttackLeft : mageAttackRight) :(props.direction == "West" ? mageSpriteLeft : mageSpriteRight)}')`,
+                backgroundImage: `url('${pickSprite(props)}')`,
                 width: "40px",
                 height: "40px",
             }}

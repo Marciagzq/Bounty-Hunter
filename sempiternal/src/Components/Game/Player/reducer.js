@@ -5,7 +5,7 @@ const initialState = {
     spriteLocation: "0px 0px",
     direction: "east",
     walkIndex: 0,
-    hp: 15,
+    hp: 10,
     maxhp: 15,
     ad: 3,
     mp: 20,
@@ -13,6 +13,7 @@ const initialState = {
     lvl: 1,
     xpLv: 20,
     xp: 5,
+    map: 1,
 }
 
 const playerReducer = (state = initialState, action) => {

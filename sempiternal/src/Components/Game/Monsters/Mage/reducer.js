@@ -1,10 +1,11 @@
 const initialState = {
     //position along x and y axis of the player
-    position: [160, 0],
+    position: [320, 280],
     direction: "West",
     currentCD: 0,
     maxCD: 3,
     attacking: false,
+    locked: false,
 }
 
 const mageReducer = (state = initialState, action) => {
