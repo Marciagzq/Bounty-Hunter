@@ -8,13 +8,10 @@ import "./styles.css"
 function HUD() {
     return (
         <div className="hud">
-            {/* <Portrait /> */}
-            <div className="bars">
-                <HealthBar />
-                <ManaBar />
-                <XPBar />
-            </div>
-
+            <Portrait />
+            <HealthBar />
+            <ManaBar />
+            <XPBar />
         </div>
     )
 }
