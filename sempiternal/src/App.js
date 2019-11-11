@@ -21,16 +21,17 @@ import jwt_decode from 'jwt-decode';
 import setAuthToken from './utils/setAuthToken';
 import { setCurrentUser, logoutUser } from './actions/authActions';
 import { Provider } from 'react-redux';
-import store from './store';
+import Gamepage from "./Components/Web/Gamepage/index.js"
+import store from './Config/store';
 
 import './App.css';
 
-import Navbar from './Components/layout/Navbar';
-import Landing from './Components/layout/Landing';
-import Register from './Components/auth/Register';
-import Login from './Components/auth/Login';
-import PrivateRoute from './Components/private-route/PrivateRoute';
-import Dashboard from './Components/dashboard/Dashboard';
+import Navbar from './Components/Web/layout/Navbar';
+import Landing from './Components/Web/layout/Landing';
+import Register from './Components/Web/auth/Register';
+import Login from './Components/Web/auth/Login';
+import PrivateRoute from './Components/Web/private-route/PrivateRoute';
+import Dashboard from './Components/Web/dashboard/Dashboard';
 
 if(localStorage.jwtToken){
     const token = localStorage.jwtToken;
@@ -56,6 +57,7 @@ class App extends Component {
                         <Route exact path="/" component={Landing} />
                         <Route exact path="/register" component={Register} />
                         <Route exact path="/login" component={Login} />
+                        <Route exact path="/game" component={Gamepage} />
                         <Switch>
                             <PrivateRoute exact path="/dashboard" component={Dashboard} />
                         </Switch>

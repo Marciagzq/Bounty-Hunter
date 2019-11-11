@@ -4,6 +4,9 @@ import Fireball from "../Attacks/Fireball/fireball";
 
 export default function move(monster) {
 
+  const path = window.location.href.split("/") 
+  console.log(path)
+  if (path[3] === "game") {
   setInterval(function () {
     const dir = store.getState().mage.direction
     const locked = store.getState().mage.locked
@@ -23,7 +26,7 @@ export default function move(monster) {
       })
     }
   }, 500)
-
+}
   //gets new position for the mage if he is moving
   function getNewPosition(oldPos, direction) {
 
