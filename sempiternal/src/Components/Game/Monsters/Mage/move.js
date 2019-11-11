@@ -1,6 +1,7 @@
 import React from "react";
 import store from "../../../../Config/store";
 import { spriteSize, mapWidth, mapHeight } from "../../../../Config/constants";
+import Fireball from "../Attacks/Fireball/fireball"
 
 export default function move(monster) {
 
@@ -180,12 +181,14 @@ export default function move(monster) {
     else {
       if (currentCD == 0) {
         console.log("attack!!!")
-        return {
+        return ({
           position: magePos,
           direction,
           currentCD: 1,
           attacking: true,
-        }
+        }//,
+        // <Fireball position={[magePos[0] - spriteSize, magePos]}/>
+        )
       }
       else if (currentCD !== 0 && currentCD !== maxCD) {
         console.log("Attack is on cd")
