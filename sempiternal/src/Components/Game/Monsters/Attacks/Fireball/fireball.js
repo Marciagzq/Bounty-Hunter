@@ -1,8 +1,5 @@
 import React from "react";
 import fireball from "./fireBall.gif";
-import store from "../../../../../Config/store"
-
-
 
 function Fireball(props)  {
     console.log(props.position)
