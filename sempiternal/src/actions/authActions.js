@@ -19,7 +19,7 @@ export const setUserLoading = () => {
 export const setErrors = err => {
     return {
         type: GET_ERRORS,
-        payload: err.response.data
+        payload: err.response
     };
 };
 

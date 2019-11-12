@@ -6,7 +6,7 @@ export default function handleMovement(player) {
 
     //gets the new position of the player when a direction is passed in through handlekeydown
     function getNewPosition(oldPos, direction) {
-        
+
         switch (direction) {
             case "West":
                 return [oldPos[0] - spriteSize, oldPos[1]]
@@ -21,23 +21,23 @@ export default function handleMovement(player) {
 
     //function to display different character
     function getSpriteLocation(direction, walkIndex) {
-        switch(direction) {
+        switch (direction) {
             case "West":
-                return `${spriteSize*walkIndex}px ${spriteSize*2}px`
+                return `${spriteSize * walkIndex}px ${spriteSize * 2}px`
             case "East":
-                return `${spriteSize*walkIndex}px ${spriteSize*1}px`
+                return `${spriteSize * walkIndex}px ${spriteSize * 1}px`
             case "North":
-                return `${spriteSize*walkIndex}px ${spriteSize*3}px`
+                return `${spriteSize * walkIndex}px ${spriteSize * 3}px`
             case "South":
-                return `${spriteSize*walkIndex}px ${spriteSize*0}px` 
+                return `${spriteSize * walkIndex}px ${spriteSize * 0}px`
         }
     }
 
     function getWalkIndex() {
-        const walkIndex = store.getState().player.walkIndex 
-            return walkIndex >= 7 ? 0 : walkIndex + 1
+        const walkIndex = store.getState().player.walkIndex
+        return walkIndex >= 7 ? 0 : walkIndex + 1
     }
-      
+
 
     //checks boundaries when the player moves
     function observeBoundaries(oldPos, newPos) {
@@ -72,7 +72,7 @@ export default function handleMovement(player) {
         const oldPos = store.getState().player.position
         const newPos = getNewPosition(oldPos, direction)
 
-        if(observeBoundaries(oldPos, newPos) && observeObstacles(oldPos, newPos)) {
+        if (observeBoundaries(oldPos, newPos) && observeObstacles(oldPos, newPos)) {
             dispatchMove(direction, newPos)
         }
     }
@@ -98,9 +98,12 @@ export default function handleMovement(player) {
         }
     }
 
-    window.addEventListener("keydown", (e) => {
-        handleKeyDown(e);
-    })
-
+    const path = window.location.href.split("/")
+    console.log(path)
+    if (path[3] === "game") {
+        window.addEventListener("keydown", (e) => {
+            handleKeyDown(e);
+        })
+    }
     return player
 }
