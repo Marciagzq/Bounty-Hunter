@@ -2,6 +2,7 @@
 const initialState = {
     //position along x and y axis of the player
     position: [0, 0],
+    pseudoPosition: [320, 160],
     spriteLocation: "0px 0px",
     direction: "east",
     walkIndex: 0,
@@ -14,6 +15,8 @@ const initialState = {
     xpLv: 20,
     xp: 5,
     map: 1,
+    top: 160,
+    left: 320,
 }
 
 const playerReducer = (state = initialState, action) => {

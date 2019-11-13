@@ -10,8 +10,8 @@ function Player(props)  {
         <div 
             style={{
                 position: "absolute",
-                top: props.position[1],
-                left: props.position[0],
+                top: props.pseudoPosition[1],
+                left: props.pseudoPosition[0],
                 backgroundImage: `url('${walkSprite}')`,
                 backgroundPosition: props.spriteLocation,
                 width: "40px",
@@ -29,6 +29,6 @@ function mapStateToProps(state) {
         ...state.player,
     }
 }
-//first set is for mapStateToProps and mapDispatchToProps
+//first set is for mapStateToProps
 //second set is for Player
 export default connect(mapStateToProps)(handleMovement(Player))
