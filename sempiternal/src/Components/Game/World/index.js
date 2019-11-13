@@ -16,15 +16,13 @@ function World(props) {
         <div
             style={{
                 position: "relative",
-                width: "800px",
-                height: "400px",
-                margin: "20px auto",
-
+                width: "1600px",
+                height: "800px",
             }}
         >
             <Map />
             <Player />
-            <Mage />
+            
         </div>
     )
 }

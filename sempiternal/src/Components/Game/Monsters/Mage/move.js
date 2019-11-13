@@ -10,6 +10,7 @@ export default function move(monster) {
   setInterval(function () {
     const dir = store.getState().mage.direction
     const locked = store.getState().mage.locked
+    console.log(store.getState().map.top)
     console.log("locked is " + locked)
     console.log(dir)
     const newMageInfo = checkMove(dir)

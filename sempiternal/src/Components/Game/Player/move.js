@@ -3,6 +3,7 @@ import store from "../../../Config/store";
 import { spriteSize, mapWidth, mapHeight } from "../../../Config/constants";
 
 export default function handleMovement(player) {
+    let newValues = [store.getState().player.left, store.getState().player.top];
 
     //gets the new position of the player when a direction is passed in through handlekeydown
     function getNewPosition(oldPos, direction) {
@@ -55,15 +56,19 @@ export default function handleMovement(player) {
     }
 
     //dispatches the getNewPosition function to the store named as move_Player
-    function dispatchMove(direction, newPos) {
+    function dispatchMove(direction, newPos, newValues) {
         const walkIndex = getWalkIndex()
+        const pseudoPosition = store.getState().player.pseudoPosition
         store.dispatch({
             type: "move_Player",
             payload: {
                 position: newPos,
+                pseudoPosition,
                 direction: direction,
                 walkIndex,
                 spriteLocation: getSpriteLocation(direction, walkIndex),
+                top: newValues[1],
+                left: newValues[0]
             }
         })
     }
@@ -73,7 +78,48 @@ export default function handleMovement(player) {
         const newPos = getNewPosition(oldPos, direction)
 
         if (observeBoundaries(oldPos, newPos) && observeObstacles(oldPos, newPos)) {
-            dispatchMove(direction, newPos)
+            moveMap(direction)
+            dispatchMove(direction, newPos, newValues);
+        }
+    }
+
+    function moveMap(direction) {
+        let top = store.getState().player.top
+        let left = store.getState().player.left
+
+        switch (direction) {
+            case "South":
+                if (top !== (-600)) {
+                    const newTop = top - 40
+                    return newValues = [left, newTop]
+                } 
+                else {
+                    return newValues = [left, top]
+                }
+            case "North":
+                if (top !== 160) {
+                    const newTop = top + 40
+                    return newValues = [left, newTop]
+                } 
+                else {
+                    return newValues = [left, top]
+                }
+            case "West":
+                if (left !== 320) {
+                    const newLeft = left + 40
+                    return newValues = [newLeft, top]
+                } 
+                else {
+                    return newValues = [left, top]
+                }
+            case "East":
+                if (left !== (-1240)) {
+                    const newLeft = left - 40
+                    return newValues = [newLeft, top]
+                } 
+                else {
+                    return newValues = [left, top]
+                }
         }
     }
 

@@ -1,6 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 import {spriteSize} from "../../../Config/constants"
+import Mage from "../Monsters/Mage/mage"
 import "./styles.css"
 
 function getTileSprite(type) {
@@ -40,24 +41,25 @@ function Map(props) {
         <div
             style={{
                 position: "relative",
-                top: "0px",
-                left: "0px",
-                width: "800px",
-                height: "400px",
+                top: props.player.top,
+                left: props.player.left,
+                width: "1600px",
+                height: "800px",
                 backgroundColor: "green",
                 // border: "4px solid white",
             }}
         >
             {
-                props.tiles.map(row => <MapRow tiles={row} />)
+                props.map.tiles.map(row => <MapRow tiles={row} />)
             }
+            <Mage mapPos={0}/>
         </div>
     )
 }
 //connects the state from map to the store
 function mapStateToProps(state) {
     return {
-        tiles: state.map.tiles
+        ...state
     }
 }
 
