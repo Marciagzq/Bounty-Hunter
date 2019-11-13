@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import SplashScreen from '../splashScreen';
+
+
 
 class Landing extends Component {
     render() {
         return (
-            <div className="container valign-wrapper" style={{ height: "75vh" }}>
+            <div>
+            <div className="container valign-wrapper preload" id="preload" style={{ height: "75vh" }}>
                 <div className="row">
                     <div className="col s12 center-align">
                         <h4>
@@ -34,6 +38,7 @@ class Landing extends Component {
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         );
     }

@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { loginUser } from '../../../actions/authActions';
 import classnames from 'classnames';
-
 class Login extends Component {
     constructor() {
         super();
@@ -50,6 +49,7 @@ class Login extends Component {
 
     render() {
         const { errors } = this.state;
+        
 
         return (
             <div className="container">
@@ -96,6 +96,7 @@ class Login extends Component {
                         </form>
                     </div>
                 </div>
+                
             </div>
         );
     }

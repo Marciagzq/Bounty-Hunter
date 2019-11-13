@@ -20,4 +20,4 @@ function Fireball(props)  {
 
 //first set is for mapStateToProps and mapDispatchToProps
 //second set is for Mage
-export default Fireball;
+export default Fireball; 

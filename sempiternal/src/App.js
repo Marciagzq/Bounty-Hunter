@@ -32,6 +32,7 @@ import Register from './Components/Web/auth/Register';
 import Login from './Components/Web/auth/Login';
 import PrivateRoute from './Components/Web/private-route/PrivateRoute';
 import Dashboard from './Components/Web/dashboard/Dashboard';
+import SplashScreen from './Components/Web/splashScreen';
 
 if(localStorage.jwtToken){
     const token = localStorage.jwtToken;
@@ -54,8 +55,9 @@ class App extends Component {
                 <Router>
                     <div className="App">
                         <Navbar />
-                        <Route exact path="/" component={Landing} />
-                        <Route exact path="/register" component={Register} />
+                        <Route exact path="/" component={SplashScreen} />
+                        <Route exact path="/landing" component={Landing} />
+                        <Route exact path="/register"  component={Register} />
                         <Route exact path="/login" component={Login} />
                         <Route exact path="/game" component={Gamepage} />
                         <Switch>
