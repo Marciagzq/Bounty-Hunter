@@ -1,12 +1,13 @@
 body {
-        background: rgb(75, 75, 75);
+        background: rgb(255, 255, 255);
+        /* background-image: url("https://images.alphacoders.com/603/60343.jpg"); */
         overflow: hidden;
       }
       
       .welcome .splash {
         height: 0px;
         padding: 0px;
-        border: 130em solid black;
+        border: 130em solid rgb(255, 255, 255);
         position: fixed;
         left: 50%;
         top: 100%;
@@ -19,7 +20,7 @@ body {
       }
       
       .welcome #welcome {
-        background: #b4d61a ;
+        background: #eeff55 ;
         width: 56px;
         height: 56px;
         position: absolute;
@@ -36,14 +37,15 @@ body {
       .welcome header,
       .welcome a.btn {
         opacity: 0;
-        animation: moveIn 2s 3.1s ease forwards;
+        animation: moveIn 4s 3.1s ease forwards;
       }
     
       header{
           margin-top: 300px;
           text-align: center;
           font-family: 'Orbitron', sans-serif;
-          color:#;
+          color:#fff;
+          letter-spacing: 5px;
       }
       
       @keyframes init {
