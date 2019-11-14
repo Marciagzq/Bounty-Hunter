@@ -2,7 +2,7 @@
 const initialState = {
     //position along x and y axis of the player
     position: [0, 0],
-    pseudoPosition: [320, 160],
+    pseudoPosition: [360, 160],
     spriteLocation: "0px 0px",
     direction: "east",
     walkIndex: 0,
@@ -15,15 +15,15 @@ const initialState = {
     xpLv: 20,
     xp: 5,
     map: 1,
-    top: 160,
-    left: 320,
+    top: 80,
+    left: 360,
 }
 
 const playerReducer = (state = initialState, action) => {
     switch (action.type) {
         case "move_Player":
             return {
-                ...action.payload
+                ...state, ...action.payload
             }
         default:
             return state

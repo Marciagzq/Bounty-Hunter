@@ -1,33 +1,34 @@
 import store from "../../../../Config/store";
 import { spriteSize, mapWidth, mapHeight } from "../../../../Config/constants";
 import Fireball from "../Attacks/Fireball/fireball";
+import React from "react";
 
 export default function move(monster) {
 
-  const path = window.location.href.split("/") 
+  const path = window.location.href.split("/")
   console.log(path)
   if (path[3] === "game") {
-  setInterval(function () {
-    const dir = store.getState().mage.direction
-    const locked = store.getState().mage.locked
-    console.log(store.getState().map.top)
-    console.log("locked is " + locked)
-    console.log(dir)
-    const newMageInfo = checkMove(dir)
-    console.log('increment timer')
-    checkSight()
-    store.dispatch({
-      type: 'INCREMENT_TIMER'
-    })
-    if (locked) {
+    setInterval(function () {
+      const dir = store.getState().mage.direction
+      const locked = store.getState().mage.locked
+      console.log("locked is " + locked)
+      console.log(dir)
+      const newMageInfo = checkMove(dir)
+      console.log('increment timer')
+      checkAttack();
+      checkSight()
       store.dispatch({
-        type: "move_Mage",
-        payload: newMageInfo
-
+        type: 'INCREMENT_TIMER'
       })
-    }
-  }, 500)
-}
+      if (locked) {
+        store.dispatch({
+          type: "move_Mage",
+          payload: newMageInfo
+
+        })
+      }
+    }, 500)
+  }
   //gets new position for the mage if he is moving
   function getNewPosition(oldPos, direction) {
 
@@ -129,6 +130,19 @@ export default function move(monster) {
 
 
   // }
+
+  //checks if mage is attacking
+  function checkAttack() {
+    const magePos = store.getState().mage.position
+    if (store.getState().mage.attacking) {
+      console.log("fireball!")
+      return (
+        
+          <Fireball position={[magePos[0] - spriteSize, magePos[1]]} />
+        
+      )
+    }
+  }
 
   //moving function for the mage
   function checkMove(direction) {
@@ -262,8 +276,8 @@ export default function move(monster) {
           direction,
           currentCD: 1,
           attacking: true,
-        }//,
-          // <Fireball position={[magePos[0] - spriteSize, magePos]}/>
+        }
+
         )
       }
       else if (currentCD !== 0 && currentCD !== maxCD) {

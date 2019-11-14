@@ -8,10 +8,23 @@ import mageAttackRight from "./Assets/mageAttackRight.gif";
 import move from "./move";
 import store from "../../../../Config/store"
 import player from "../../Player/player";
+import Fireball from "../Attacks/Fireball/fireball"
+import {spriteSize} from "../../../../Config/constants"
 
+let hasLoaded = 0;
 
 function Mage(props)  {
-    
+    console.log(props.pos)
+    if((hasLoaded < 2) && props.pos) {
+        console.log("test")
+        hasLoaded += 1;
+        store.dispatch({
+            type: "set_Pos",
+            payload: {
+                position: props.pos
+            }
+        })
+    }
     
     function pickSprite(props) {
         const playerPos = store.getState().player.position
@@ -60,7 +73,9 @@ function Mage(props)  {
                 width: "40px",
                 height: "40px",
             }}
-        />
+        >
+        {props.attacking ? <Fireball position={[0 - spriteSize, 0]} /> : " "}
+        </div>
     )
 }
 

@@ -6,11 +6,17 @@ const initialState = {
     maxCD: 3,
     attacking: false,
     locked: false,
+    isAlive : true,
 }
 
 const mageReducer = (state = initialState, action) => {
     switch (action.type) {
         case "move_Mage":
+            return {
+                ...state,
+                ...action.payload
+            }
+        case "set_Pos":
             return {
                 ...state,
                 ...action.payload

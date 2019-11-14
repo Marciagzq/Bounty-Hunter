@@ -14,11 +14,21 @@ const XPBar = () => {
     )
 }
 
+const Num = (props) => {
+    return (
+        <div className="xpNum">
+            {props.xp}/{props.maxXp}
+        </div>
+    )
+}
+
 const Filler = (props) => {
     return (
         <div className="fillerXP"
             style={{ width: `${props.percentage}%` }}
-        />
+        >
+            <Num xp={xp} maxXp={maxXP} />
+        </div>
     )
 }
 

@@ -1,13 +1,17 @@
 .xpBar {
     position: relative;
+    top: -32px;
+    left: -169px;
     height: 20px;
-    width: 350px;
-    margin-left: 150px;
-    margin-top: 5px;
+    width: 175px;
+    /* margin-left: 150px; */
+    /* margin-top: 5px; */
     border-radius: 50px;
     overflow: hidden;
     border: 2px solid #333;
+    display: inline-block;
     background-color: white;
+    z-index: 4;
 }
 
 .fillerXP {
@@ -15,4 +19,9 @@
     height: 100%;
     border-radius: inherit;
     transition: width .2s ease-in;
+}
+
+.xpNum {
+    z-index: 15;
+    margin-left: 75px;
 }

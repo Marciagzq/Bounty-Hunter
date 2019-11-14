@@ -14,11 +14,21 @@ const ManaBar = () => {
     )
 }
 
+const Num = (props) => {
+    return (
+        <div className="mpNum">
+            {props.mp}/{props.maxmp}
+        </div>
+    )
+}
+
 const Filler = (props) => {
     return (
         <div className="fillerMana"
             style={{ width: `${props.percentage}%` }}
-        />
+        >
+            <Num mp={mp} maxmp={maxmp} />
+        </div>
     )
 }
 

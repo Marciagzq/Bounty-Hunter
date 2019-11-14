@@ -68,7 +68,7 @@ export default function handleMovement(player) {
                 walkIndex,
                 spriteLocation: getSpriteLocation(direction, walkIndex),
                 top: newValues[1],
-                left: newValues[0]
+                left: newValues[0],
             }
         })
     }
@@ -89,7 +89,7 @@ export default function handleMovement(player) {
 
         switch (direction) {
             case "South":
-                if (top !== (-600)) {
+                if (top !== (-680)) {
                     const newTop = top - 40
                     return newValues = [left, newTop]
                 } 
@@ -97,7 +97,7 @@ export default function handleMovement(player) {
                     return newValues = [left, top]
                 }
             case "North":
-                if (top !== 160) {
+                if (top !== 80) {
                     const newTop = top + 40
                     return newValues = [left, newTop]
                 } 
@@ -105,7 +105,7 @@ export default function handleMovement(player) {
                     return newValues = [left, top]
                 }
             case "West":
-                if (left !== 320) {
+                if (left !== 360) {
                     const newLeft = left + 40
                     return newValues = [newLeft, top]
                 } 

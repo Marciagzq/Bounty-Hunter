@@ -4,6 +4,7 @@ import Player from "../Player/player";
 import Map from "../Map/index";
 import { tiles }from "../../../data/maps/1/index";
 import store from "../../../Config/store";
+import HUD from "../../Game/UI/HUD/hud"
 
 function World(props) {
     store.dispatch({
@@ -20,6 +21,7 @@ function World(props) {
                 height: "800px",
             }}
         >
+            <HUD />
             <Map />
             <Player />
             

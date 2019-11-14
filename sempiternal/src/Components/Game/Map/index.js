@@ -26,7 +26,7 @@ function MapTile(props) {
 }
 
 function MapRow(props) {
-    return <div className="row"
+    return <div className="gameRow"
     style={{
         height: spriteSize
     }}>
@@ -52,7 +52,7 @@ function Map(props) {
             {
                 props.map.tiles.map(row => <MapRow tiles={row} />)
             }
-            <Mage mapPos={0}/>
+           {props.mage.isAlive ? <Mage mapPos={0} pos={[240, 40]}/> : " "}
         </div>
     )
 }
