@@ -7,6 +7,7 @@ const mapReducer = (state = initialState, action) => {
     switch (action.type) {
         case "add_Tiles":
             return {
+                ...state,
                 ...action.payload
             }
         default:

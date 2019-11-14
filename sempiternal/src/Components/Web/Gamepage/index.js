@@ -6,7 +6,7 @@ class Gamepage extends React.Component {
     return (
       <div>
         <Viewport />
-        <HUD />
+        {/* <HUD /> */}
       </div>
     );
   }

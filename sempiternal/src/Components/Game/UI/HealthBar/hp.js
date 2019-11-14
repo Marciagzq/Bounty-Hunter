@@ -9,7 +9,16 @@ const percHP = (hp / maxhp) * 100;
 const HealthBar = () => {
     return (
         <div className="healthBar">
+
             <Filler percentage={percHP} />
+        </div>
+    )
+}
+
+const Num = (props) => {
+    return (
+        <div className="hpNum">
+            {props.hp}/{props.maxhp}
         </div>
     )
 }
@@ -18,7 +27,9 @@ const Filler = (props) => {
     return (
         <div className="filler"
             style={{ width: `${props.percentage}%` }}
-        />
+        >
+            <Num hp={hp} maxhp={maxhp} />
+        </div>
     )
 }
 

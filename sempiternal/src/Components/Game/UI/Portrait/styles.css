@@ -1,6 +1,13 @@
 .port {
     position: relative;
+    left: -83px;
+    border-radius: 50%;
+    border: 2px solid black;
     height: 76.5px;
-    width: 100px;
+    width: 50px;
+    display: inline-block;
+    z-index: 5;
+    background-position-x: 45%;
     background-image: url("./character.jpg");
+    
 }
