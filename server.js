@@ -20,7 +20,7 @@ const db = require("./config/keys").mongoURI;
 mongoose.connect(db, { useNewUrlParser: true }).then(() => console.log("MongoDB connected")).catch((err) => console.log(err));
 
 if(process.env.NODE_ENV === "production") {
-    app.use(express.static("sempiternal/public"));
+    app.use(express.static("sempiternal/build"));
 }
 
 app.use(passport.initialize());
