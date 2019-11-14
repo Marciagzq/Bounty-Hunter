@@ -32,7 +32,11 @@
     "if-env": "^1.0.4",
     "validator": "^11.1.0",
     "react": "^16.6.3",
-    "react-dom": "^16.6.3"
+    "react-dom": "^16.6.3",
+    "classnames": "^2.2.6",
+    "jwt-decode": "^2.2.0",
+    "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "nodemon": "^1.19.1"
