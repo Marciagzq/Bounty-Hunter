@@ -20,13 +20,15 @@ const db = require("./config/keys").mongoURI;
 mongoose.connect(db, { useNewUrlParser: true }).then(() => console.log("MongoDB connected")).catch((err) => console.log(err));
 
 if(process.env.NODE_ENV === "production") {
-    app.use(express.static("sempiternal/app.js"));
+    app.use(express.static("sempiternal/build"));
 }
+
 
 app.use(passport.initialize());
 require('./config/passport')(passport);
 
 app.use('/api/users', users);
+app.get('*', (req, res) => res.sendFile(path.resolve('build', 'index.html')));
 
 app.listen(port, () => {
     console.log(`Server is listening at http://localhost:${port}`);
