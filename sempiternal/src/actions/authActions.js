@@ -43,4 +43,5 @@ export const logoutUser = () => dispatch => {
     localStorage.removeItem("jwtToken");
     setAuthToken(false);
     dispatch(setCurrentUser({}));
+    axios.post("/api/users/login")
 };
