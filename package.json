@@ -28,6 +28,7 @@
     "passport-jwt": "^4.0.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
+    "react-redux": "^7.1.1",
     "if-env": "^1.0.4",
     "validator": "^11.1.0",
     "react": "^16.6.3",
