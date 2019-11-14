@@ -29,7 +29,7 @@ export default function move(monster) {
           payload: newMageInfo
 
         })
-        if (currentCD == 0){
+        if (checkMove(dir).length > 1){
           store.dispatch({
             type:"move",
             payload: fbInfo

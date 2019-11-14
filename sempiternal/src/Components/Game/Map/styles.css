@@ -4,7 +4,7 @@
 }
 
 .rock {
-    background-image: url("/tiles/rock.png");
+    background-image: url("../../../Tiles/rock.png");
 }
 
 .grass {
@@ -12,5 +12,5 @@
 }
 
 .tree {
-    background-image: url("/tiles/tree.png");
+    background-image: url("../../../Tiles/tree.png");
 }
