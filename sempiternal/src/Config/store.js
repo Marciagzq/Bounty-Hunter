@@ -2,6 +2,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import mageReducer from "../Components/Game/Monsters/Mage/reducer"
 import playerReducer from "../Components/Game/Player/reducer"
 import mapReducer from "../Components/Game/Map/reducer"
+import fireballReducer from "../Components/Game/Monsters/Attacks/Fireball/reducer"
 import worldReducer from "../Components/Game/World/reducer"
 import authReducer from "../reducers/authReducers";
 import errorReducer from '../reducers/errorReducers';
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
     
     player: playerReducer,
     mage: mageReducer,
+    fireball: fireballReducer,
     map: mapReducer,
     world: worldReducer,
     auth: authReducer,

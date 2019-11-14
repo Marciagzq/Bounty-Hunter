@@ -287,7 +287,7 @@ export default function move(monster) {
           position: magePos,
           direction,
           currentCD: newCD,
-          attacking: false,
+          attacking: true,
         }
       }
       else if (currentCD == maxCD) {

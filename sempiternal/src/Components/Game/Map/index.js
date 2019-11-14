@@ -2,6 +2,8 @@ import React from "react";
 import {connect} from "react-redux";
 import {spriteSize} from "../../../Config/constants"
 import Mage from "../Monsters/Mage/mage"
+import store from "../../../Config/store"
+import Fireball from "../Monsters/Attacks/Fireball/fireball"
 import "./styles.css"
 
 function getTileSprite(type) {
@@ -37,6 +39,7 @@ function MapRow(props) {
 }
 
 function Map(props) {
+    const magePos = store.getState().mage.position
     return (
         <div
             style={{
@@ -52,7 +55,8 @@ function Map(props) {
             {
                 props.map.tiles.map(row => <MapRow tiles={row} />)
             }
-           {props.mage.isAlive ? <Mage mapPos={0} pos={[240, 40]}/> : " "}
+           {props.mage.isAlive ? <Mage pos={[240, 40]}/> : " "}
+           {props.mage.attacking ? <Fireball fbPos={[magePos[0] - spriteSize, magePos[1]]} /> : " "}
         </div>
     )
 }

@@ -62,6 +62,7 @@ function Mage(props)  {
             }
         }
     }
+    const magePos = store.getState().mage.position
     return (
         //Styling for Mage sprite that cuts the initial sprite from the sprite tile
         <div 
@@ -74,7 +75,7 @@ function Mage(props)  {
                 height: "40px",
             }}
         >
-        {props.attacking ? <Fireball position={[0 - spriteSize, 0]} /> : " "}
+        
         </div>
     )
 }
