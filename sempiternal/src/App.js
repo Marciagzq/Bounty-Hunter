@@ -1,20 +1,3 @@
-// import React from 'react';
-// import World from "./Components/Game/World/index"
-// import HUD from "./Components/Game/UI/HUD/hud"
-// class App extends React.Component {
-//   render() {
-//     return (
-//       <div>
-//         <World />
-//         <HUD />
-//       </div>
-//     );
-//   }
-// }
-
-// export default App;
-
-
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
@@ -31,7 +14,7 @@ import Landing from './Components/Web/layout/Landing';
 import Register from './Components/Web/auth/Register';
 import Login from './Components/Web/auth/Login';
 import PrivateRoute from './Components/Web/private-route/PrivateRoute';
-import Dashboard from './Components/Web/dashboard/Dashboard';
+import Intro from './Components/Web/intro/Intro';
 import SplashScreen from './Components/Web/splashScreen';
 
 if(localStorage.jwtToken){
@@ -59,9 +42,11 @@ class App extends Component {
                         <Route exact path="/landing" component={Landing} />
                         <Route exact path="/register"  component={Register} />
                         <Route exact path="/login" component={Login} />
-                        <Route exact path="/game" component={Gamepage} />
+                        {/* change to intro */}
+                        <Route exact path="/intro" component={Intro} />
                         <Switch>
-                            <PrivateRoute exact path="/dashboard" component={Dashboard} />
+                            {/* change to game */}
+                            <PrivateRoute exact path="/game" component={Gamepage} />
                         </Switch>
                     </div>
                 </Router>

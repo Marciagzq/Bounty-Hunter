@@ -17,12 +17,12 @@ class Landing extends Component {
                         <div className="col s6">
                             <Link to="/register" >
                     
-                                <button type="button" class="btn btn-outline-secondary">Register</button>
+                                <button type="button" className="btn btn-outline-secondary">Register</button>
                             </Link>
                         </div>
                         <div className="col s6">
                         <Link to="/login" >
-                    <button type="button" class="btn btn-outline-secondary">Login</button>
+                    <button type="button" className="btn btn-outline-secondary">Login</button>
                 </Link>
                         </div>
                     </div>

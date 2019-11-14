@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { registerUser } from '../../../actions/authActions';
 import classnames from 'classnames';
+// import Intro from './Components/Web/intro/Intro';
+
 
 class Register extends Component {
     constructor() {
@@ -18,11 +20,11 @@ class Register extends Component {
     }
 
     componentDidMount() {
-        if(this.props.auth.isAuthenticated) this.props.history.push("/dashboard");
+        if(this.props.auth.isAuthenticated) this.props.history.push("/intro");
     }
 
     componentWillReceiveProps(nextProps) {
-        if(nextProps.auth.isAuthenticated) this.props.history.push("/dashboard");
+        if(nextProps.auth.isAuthenticated) this.props.history.push("/intro");
         
         if(nextProps.errors){
             this.setState({
