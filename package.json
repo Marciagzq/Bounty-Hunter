@@ -9,7 +9,7 @@
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "build": "cd sempiternal && npm run build",
+    "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
   },
   "author": "M&M's",
