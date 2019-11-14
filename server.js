@@ -29,7 +29,7 @@ app.use(passport.initialize());
 require('./config/passport')(passport);
 
 app.use('/api/users', users);
-app.get('*', (req, res) => res.sendFile(path.resolve('build', 'index.html')));
+app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, 'sempiternal', 'build', 'index.html')));
 
 app.listen(port, () => {
     console.log(`Server is listening at http://localhost:${port}`);
