@@ -9,12 +9,15 @@ export default function move(monster) {
   console.log(path)
   if (path[3] === "game") {
     setInterval(function () {
+      const currentCD = store.getState().mage.currentCD
       const dir = store.getState().mage.direction
       const locked = store.getState().mage.locked
       console.log("locked is " + locked)
       console.log(dir)
-      const newMageInfo = checkMove(dir)
+      const newMageInfo = checkMove(dir)[0]
+      const fbInfo = checkMove(dir)[1]
       console.log('increment timer')
+      console.log(checkMove(dir))
       checkAttack();
       checkSight()
       store.dispatch({
@@ -26,6 +29,12 @@ export default function move(monster) {
           payload: newMageInfo
 
         })
+        if (currentCD == 0){
+          store.dispatch({
+            type:"move",
+            payload: fbInfo
+          })
+        }
       }
     }, 500)
   }
@@ -271,12 +280,16 @@ export default function move(monster) {
     else {
       if (currentCD == 0) {
         console.log("attack!!!")
-        return ({
+        return ([
+          {
           position: magePos,
           direction,
           currentCD: 1,
           attacking: true,
-        }
+        },
+        {
+          isLive: true
+        }]
 
         )
       }
@@ -287,7 +300,7 @@ export default function move(monster) {
           position: magePos,
           direction,
           currentCD: newCD,
-          attacking: true,
+          attacking: false,
         }
       }
       else if (currentCD == maxCD) {
