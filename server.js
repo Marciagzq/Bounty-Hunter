@@ -10,12 +10,12 @@ const passport = require('passport');
 const users = require('./routes/api/users');
 
 const path = require("path");
+
 const app = express();
 const port = process.env.PORT || 3080;
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
-
 
 const db = require("./config/keys").mongoURI;
 mongoose.connect(db, { useNewUrlParser: true }).then(() => console.log("MongoDB connected")).catch((err) => console.log(err));
