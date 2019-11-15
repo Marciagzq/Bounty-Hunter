@@ -9,7 +9,7 @@ body{
     height: 10000px;    
 }
 
-h4{
+.h4-landing{
     text-align: center;
     color: #fff;
     letter-spacing: 5px;
@@ -49,9 +49,9 @@ h6{
 
 footer{
     color:pink;
-    margin-top: 100px;
+    margin-top: 50px;
 }
-button{
+.button-landing{
     width: 400px;
     color: pink;
     display: inline-block;
@@ -80,7 +80,7 @@ display: inline-block;
 cursor: pointer;
 font-family: 'Orbitron', sans-serif;
 letter-spacing: 2px;
-    }
+}
     
 .btn:hover {
 background: rgb(246, 155, 216, 0.7);

@@ -1,13 +1,18 @@
+
 .p-tag{
     color: rgb(166, 166, 166);
+    margin-bottom: 30px;
 }
 a{
-    color: yellow;
+    color:rgb(255, 205, 238);
 }
-
+a:hover{
+    color: rgb(231, 114, 192);
+    text-decoration: none;
+}
 input,
 #input-login{
-    width: 300px;
+    width: 400px;
     height: 50px;
     display: inline-block;
     margin-bottom: 10px;
@@ -15,8 +20,13 @@ input,
     background-color: transparent !important;
     border-bottom: 1px solid rgb(255, 205, 238);
     outline: none; 
-   font-size: 22px;
+   font-size: 16px;
    color: #fff;
+}
+
+#input-field:focus{
+    transition: ease-in-out, width .35s ease-in-out;
+    width: 450px;
 }
 input:-internal-autofill-selected{
     background-color: transparent !important;
@@ -37,3 +47,38 @@ select:-webkit-autofill:focus {
 -webkit-transition-delay: 9999s;
 }
 
+.far{
+    margin-top: 30px;
+    margin-left: -50%;
+}
+.far:hover{
+    color: rgb(231, 114, 192);
+    text-decoration: none;
+}
+button{
+    width: 400px;
+    color: pink;
+    display: inline-block;
+    margin-left: 0px;
+    margin-top: 0px;
+    z-index: 5;
+}
+.jumbo-register{
+    background-color: rgba(0, 0, 0, 0.3);
+    margin-top: 50px;  
+    border-radius: 0; 
+    width:600px;
+    margin: auto;
+}
+.h6-color{
+    text-align: center;
+    color: rgb(255, 116, 181);
+    letter-spacing: 5px;
+    font-family: 'Orbitron', sans-serif;
+}
+h4{
+    margin-top: 30px;
+}
+.final-input{
+    margin-bottom: 30px;
+}

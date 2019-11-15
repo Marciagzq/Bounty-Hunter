@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import SplashScreen from '../splashScreen';
-import "./style.css";
+import "./landing.css";
 // import AwesomeButton from 'react-awesome-button/src/components/AwesomeButton';
 
 
@@ -14,17 +14,17 @@ class Landing extends Component {
                         <div className="row">
                             <div className="col s12 center-align">
 
-                                <h4><span><div className="pc-icon"></div></span>Ready for the action?</h4>
+                                <h4 className="h4-landing"><span><div className="pc-icon"></div></span>Ready for the action?</h4>
                                 <br />
 
                                 <div className="jumbotron">
 
                                     <Link to="/register" >
-                                        <button type="button" className="btn btn-outline-secondary">Register</button>
+                                        <button type="button" className="btn button-landing">Register</button>
                                     </Link>
 
                                     <Link to="/login" >
-                                        <button type="button" className="btn btn-outline-secondary">Login</button>
+                                        <button type="button" className="btn button-landing">Login</button>
                                     </Link>
 
                                 </div>

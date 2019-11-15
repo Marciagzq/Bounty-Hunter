@@ -56,9 +56,9 @@ class Login extends Component {
 
         return (
             <div className="container">
-                <div className="row" style={{ marginTop: "4rem", }}>
+                <div className="row">
                     <div className="col 12">
-                        <Link to="/">
+                        <Link to="/landing">
                             <h3 className="material-icons left"><span class='far'>&#xf359;</span></h3> 
                         </Link>
                         <div>
@@ -69,6 +69,10 @@ class Login extends Component {
                                 Don't have an account? <Link to="/register">Register</Link>
                             </p>
                         </div>
+
+                        {/* JUMBOTRON */}
+
+                        <div className="jumbotron jumbo-register">
                         <form noValidate onSubmit={this.onSubmit}>
                             <div className="input-field col s12">
                             <label htmlFor="email"></label>
@@ -79,6 +83,7 @@ class Login extends Component {
                                     {errors.emailnotfound}
                                 </span>
                             </div>
+                            <h6 className="h6-input">name</h6>
                             <div className="input-field col s12">
                                 <input onChange={this.onChange} value={this.state.password} error={errors.password} name="password" type="password" id="input-login" className={classnames("", { invalid: errors.password || errors.passwordincorrect })} />
                                 <label htmlFor="password"></label>
@@ -87,6 +92,7 @@ class Login extends Component {
                                     {errors.passwordincorrect}
                                 </span>
                             </div>
+                            <h6 className="h6-input final-input">password</h6>
                             <div className="col s12">
                                 <button className="btn btn-large waves-effect waves-light hoverable blue accent-3" style={{
                                     width: "150px",
@@ -96,10 +102,17 @@ class Login extends Component {
                                 </button>
                             </div>
                         </form>
+                        </div>
+                        <div className="col s12 center-align">
+                            <footer>
+                                <h6>© 2019 Gaming form. All Rights Reserved</h6>
+                                <h6 className="h6-color"> Created by Michael Vega & Marcia Zegarra</h6>
+                            </footer>
+                        </div>
                     </div>
-                </div>
-                
-            </div>
+     
+                </div>                
+            </div> 
         );
     }
 }
