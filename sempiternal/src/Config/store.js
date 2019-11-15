@@ -4,6 +4,7 @@ import playerReducer from "../Components/Game/Player/reducer"
 import mapReducer from "../Components/Game/Map/reducer"
 import fireballReducer from "../Components/Game/Monsters/Attacks/Fireball/reducer"
 import worldReducer from "../Components/Game/World/reducer"
+import hitReducer from "../Components/Game/Actions/Hit/reducer"
 import authReducer from "../reducers/authReducers";
 import errorReducer from '../reducers/errorReducers';
 import thunk from "redux-thunk";
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
     player: playerReducer,
     mage: mageReducer,
     fireball: fireballReducer,
+    hit: hitReducer,
     map: mapReducer,
     world: worldReducer,
     auth: authReducer,

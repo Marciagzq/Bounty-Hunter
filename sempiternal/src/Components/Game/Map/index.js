@@ -2,6 +2,7 @@ import React from "react";
 import {connect} from "react-redux";
 import {spriteSize} from "../../../Config/constants"
 import Mage from "../Monsters/Mage/mage"
+import Hit from "../Actions/Hit/index"
 import store from "../../../Config/store"
 import Fireball from "../Monsters/Attacks/Fireball/fireball"
 import "./styles.css"
@@ -40,6 +41,7 @@ function MapRow(props) {
 
 function Map(props) {
     const magePos = store.getState().mage.position
+    const playerPos = store.getState().player.position
     return (
         <div
             style={{
@@ -57,6 +59,7 @@ function Map(props) {
             }
            {props.mage.isAlive ? <Mage pos={[240, 40]}/> : " "}
            {props.fireball.isLive ? <Fireball fbPos={[magePos[0] - spriteSize, magePos[1]]} /> : " "}
+           {props.hit.isLive ? <Hit fbPos={[playerPos[0] - spriteSize, playerPos[1]]} /> : " "}
         </div>
     )
 }
