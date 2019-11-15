@@ -56,42 +56,41 @@ class Login extends Component {
 
         return (
             <div className="container">
-                <div className="row" style={{ marginTop: "4rem" }}>
-                    <div className="col s8 offset-s2">
-                        <Link to="/" className="btn-flat waves-effect">
-                            <h3 className="material-icons left">Back to home</h3> 
+                <div className="row" style={{ marginTop: "4rem", }}>
+                    <div className="col 12">
+                        <Link to="/">
+                            <h3 className="material-icons left"><span class='far'>&#xf359;</span></h3> 
                         </Link>
-                        <div className="col s12" style={{ paddingLeft: "11.250px" }}>
+                        <div>
                             <h4>
                                 <b>Login</b> below
                             </h4>
-                            <p className="grey-text text-darken-1">
+                            <p className="p-tag">
                                 Don't have an account? <Link to="/register">Register</Link>
                             </p>
                         </div>
                         <form noValidate onSubmit={this.onSubmit}>
                             <div className="input-field col s12">
-                                <input onChange={this.onChange} value={this.state.email} error={errors.email} name="email" type="email" className={classnames("", { invalid: errors.email || errors.emailnotfound })} />
-                                <label htmlFor="email">Email</label>
+                            <label htmlFor="email"></label>
+                                <input onChange={this.onChange} value="email" value={this.state.email} error={errors.email} name="email" type="email" id="input-login" className={classnames("", { invalid: errors.email || errors.emailnotfound })} />
+                               
                                 <span className="red-text">
                                     {errors.email}
                                     {errors.emailnotfound}
                                 </span>
                             </div>
                             <div className="input-field col s12">
-                                <input onChange={this.onChange} value={this.state.password} error={errors.password} name="password" type="password" className={classnames("", { invalid: errors.password || errors.passwordincorrect })} />
-                                <label htmlFor="password">Password</label>
+                                <input onChange={this.onChange} value={this.state.password} error={errors.password} name="password" type="password" id="input-login" className={classnames("", { invalid: errors.password || errors.passwordincorrect })} />
+                                <label htmlFor="password"></label>
                                 <span className="red-text">
                                     {errors.password}
                                     {errors.passwordincorrect}
                                 </span>
                             </div>
-                            <div className="col s12" style={{ paddingLeft: "11.250px" }}>
+                            <div className="col s12">
                                 <button className="btn btn-large waves-effect waves-light hoverable blue accent-3" style={{
                                     width: "150px",
-                                    borderRadius: "3px",
-                                    letterSpacing: "1.5px",
-                                    marginTop: "1rem"
+                                    alignContent: "center",
                                 }} type="submit">
                                     Login
                                 </button>

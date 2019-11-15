@@ -73,22 +73,22 @@ class Register extends Component {
                             </div>
                             <form noValidate onSubmit={this.onSubmit}>
                                 <div className="input-field col s12">
-                                    <input onChange={this.onChange} value={this.state.name} error={errors.name} name="name" type="text" id="name" className={classnames("", { invalid: errors.name })} />
+                                    <input onChange={this.onChange} value={this.state.name} error={errors.name} name="name" type="text" id="input-field" className={classnames("", { invalid: errors.name })} />
                                     <label htmlFor="name"></label>
                                     <span className="red-text">{errors.name}</span>
                                 </div>
                                 <div className="input-field col s12">
-                                    <input onChange={this.onChange} value={this.state.email} error={errors.email} name="email" type="email" id="email" className={classnames("", { invalid: errors.email })} />
+                                    <input onChange={this.onChange} value={this.state.email} error={errors.email} name="email" type="email" id="input-field" className={classnames("", { invalid: errors.email })} />
                                     <label htmlFor="email"></label>
                                     <span className="red-text">{errors.email}</span>
                                 </div>
                                 <div className="input-field col s12">
-                                    <input onChange={this.onChange} value={this.state.password} error={errors.password} name="password" type="password" id="password" className={classnames("", { invalid: errors.password })} />
+                                    <input onChange={this.onChange} value={this.state.password} error={errors.password} name="password" type="password" id="input-field" className={classnames("", { invalid: errors.password })} />
                                     <label htmlFor="password"></label>
                                     <span className="red-text">{errors.password}</span>
                                 </div>
                                 <div className="input-field col s12">
-                                    <input onChange={this.onChange} value={this.state.password2} error={errors.password2} name="password2" type="password" id="repeat-password" className={classnames("", { invalid: errors.password2 })} />
+                                    <input onChange={this.onChange} value={this.state.password2} error={errors.password2} name="password2" type="password" id="input-field" className={classnames("", { invalid: errors.password2 })} />
                                     <label htmlFor="password2"></label>
                                     <span className="red-text">{errors.password2}</span>
                                 </div>
