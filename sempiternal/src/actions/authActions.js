@@ -2,6 +2,7 @@ import axios from 'axios';
 import setAuthToken from '../utils/setAuthToken';
 import jwt_decode from 'jwt-decode';
 import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING } from './types';
+// import { browserHistory } from "react-router";
 
 export const setCurrentUser = decoded => {
     return {
@@ -44,4 +45,5 @@ export const logoutUser = () => dispatch => {
     setAuthToken(false);
     dispatch(setCurrentUser({}));
     axios.post("/api/users/login")
+    // this.props.history.push("/landing")
 };
