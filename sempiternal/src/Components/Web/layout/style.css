@@ -1,30 +1,95 @@
 body{
-    background-image: url("https://images.pexels.com/photos/159393/gamepad-video-game-controller-game-controller-controller-159393.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-    background-repeat: no-repeat;
+    background-image: url("../pictures/keyboard.jpg");
+    background-repeat: repeat;
     background-attachment: fixed;
+    position: static;
+}
+.body{
+    background-color: rgb(0, 0, 0, 0.5);
+    height: 10000px;    
 }
 
-/* .container{
-    border: rgb(255, 255, 255, 0.1) solid 1px;
-    border-radius: 25px;
-    margin: 100px;
-    height: 300px;
-    width: 500px;
-    background-color: rgb(255, 255, 255, 0.2);
-    padding-top: 20px;
-    margin: 0 auto;
-    margin-top: 100px;
-} */
 h4{
     text-align: center;
     color: #fff;
     letter-spacing: 5px;
-    font-size: 30px;
+    font-size: 35px;
     font-weight: 100;
     font-family: 'Orbitron', sans-serif;
-    margin-top: 20%;
-    
+    margin-top: 150px;    
 }
-.btn btn-outline-secondary{
+span{
+    margin-right: 30px;
+}
+h6{
+    text-align: center;
     color: #fff;
+    letter-spacing: 5px;
+    font-family: 'Orbitron', sans-serif;
+}
+.h6-color{
+    text-align: center;
+    color: rgb(255, 116, 181);
+    letter-spacing: 5px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.pc-icon{
+    background-image: url("../pictures/heart.png");
+    /* background-image: url("../pictures/web-programming.png"); */
+    width: 64px;
+    height: 64px;
+    display: inline-block;
+}
+
+.jumbotron{
+    background-color: transparent;
+    align-content: center;
+}
+
+footer{
+    color:pink;
+    margin-top: 100px;
+}
+button{
+    width: 400px;
+    color: pink;
+    display: inline-block;
+    margin-left: 90px;
+}
+
+.btn{
+-webkit-border-radius: 40px;
+-moz-border-radius: 40px;
+border-radius: 40px;
+height: 0px;
+line-height: 0px;
+color: #F69BD8;
+font-family: Open Sans;
+width: 400px;
+font-size: 14px;
+font-weight: 100;
+padding: 23px;
+background-color: transparent;
+box-shadow: 0px 50px 100px 0px #F69BD8;
+-webkit-box-shadow: 0px 50px 100px 0px #F69BD8;
+-moz-box-shadow: 0px 50px 100px 0px #F69BD8;
+border: solid #F69BD8 0px;
+text-decoration: none;
+display: inline-block;
+cursor: pointer;
+font-family: 'Orbitron', sans-serif;
+letter-spacing: 2px;
+    }
+    
+.btn:hover {
+background: rgb(246, 155, 216, 0.7);
+border: solid #F69BD8 0px;
+-webkit-border-radius: 40px;
+-moz-border-radius: 40px;
+border-radius: 40px;
+text-decoration: none;
+box-shadow: 0px 1px 12px 2px #F69BD8;
+-webkit-box-shadow: 0px 1px 12px 2px #F69BD8;
+-moz-box-shadow: 0px 1px 12px 2px #F69BD8;
 }
