@@ -56,7 +56,7 @@ function Map(props) {
                 props.map.tiles.map(row => <MapRow tiles={row} />)
             }
            {props.mage.isAlive ? <Mage pos={[240, 40]}/> : " "}
-           {props.mage.attacking ? <Fireball fbPos={[magePos[0] - spriteSize, magePos[1]]} /> : " "}
+           {props.fireball.isLive ? <Fireball fbPos={[magePos[0] - spriteSize, magePos[1]]} /> : " "}
         </div>
     )
 }

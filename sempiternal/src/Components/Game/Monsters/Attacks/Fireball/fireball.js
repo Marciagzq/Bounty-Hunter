@@ -4,19 +4,18 @@ import { connect } from "react-redux";
 import actions from "./actions";
 import store from "../../../../../Config/store";
 
-let hasLoaded;
-
 function Fireball(props)  {
-    if((!hasLoaded) && props.fbPos) {
-        console.log("test")
-        hasLoaded = true;
-        store.dispatch({
-            type: "move",
-            payload: {
-                position: props.fbPos
-            }
-        })
-    }
+//     setInterval(function() {
+//         if(props.fbPos && !props.isLive) {
+//         console.log("test")
+//         store.dispatch({
+//             type: "move",
+//             payload: {
+//                 position: props.fbPos
+//             }
+//         })
+//     }
+// }, 1000)
     return (
         //Styling for Mage sprite that cuts the initial sprite from the sprite tile
         <div 

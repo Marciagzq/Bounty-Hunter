@@ -14,11 +14,11 @@ export default function move(monster) {
       const locked = store.getState().mage.locked
       console.log("locked is " + locked)
       console.log(dir)
-      const newMageInfo = checkMove(dir)[0]
+      const newMageInfo = checkMove(dir)
       const fbInfo = checkMove(dir)[1]
       console.log('increment timer')
       console.log(checkMove(dir))
-      checkAttack();
+      // checkAttack();
       checkSight()
       store.dispatch({
         type: 'INCREMENT_TIMER'
@@ -29,12 +29,14 @@ export default function move(monster) {
           payload: newMageInfo
 
         })
-        if (checkMove(dir).length > 1){
-          store.dispatch({
-            type:"move",
-            payload: fbInfo
-          })
-        }
+      }
+      if (store.getState().mage.attacking) {
+        store.dispatch({
+          type: "move",
+          payload: {
+            isLive: true
+          }
+        })
       }
     }, 500)
   }
@@ -139,19 +141,6 @@ export default function move(monster) {
 
 
   // }
-
-  //checks if mage is attacking
-  function checkAttack() {
-    const magePos = store.getState().mage.position
-    if (store.getState().mage.attacking) {
-      console.log("fireball!")
-      return (
-        
-          <Fireball position={[magePos[0] - spriteSize, magePos[1]]} />
-        
-      )
-    }
-  }
 
   //moving function for the mage
   function checkMove(direction) {
@@ -280,17 +269,13 @@ export default function move(monster) {
     else {
       if (currentCD == 0) {
         console.log("attack!!!")
-        return ([
+        return (
           {
           position: magePos,
           direction,
           currentCD: 1,
           attacking: true,
-        },
-        {
-          isLive: true
-        }]
-
+        }
         )
       }
       else if (currentCD !== 0 && currentCD !== maxCD) {
