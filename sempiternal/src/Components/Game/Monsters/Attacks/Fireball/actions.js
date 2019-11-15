@@ -12,6 +12,7 @@ export default function actions(projectile) {
             const locked = store.getState().fireball.isLive
             const magePos = store.getState().mage.position
             const newFireballInfo = checkMove();
+            hitPlayer();
             checkMove();
             if (locked) {
                 store.dispatch({
@@ -65,6 +66,28 @@ export default function actions(projectile) {
         }
     }
 
+    function checkPlayer(newPos) {
+        const playerPos = store.getState().player.position
+        return (playerPos < newPos || playerPos > newPos) 
+    }
+
+    function hitPlayer(){
+        const direction = store.getState().fireball.direction
+        const oldPos = store.getState().fireball.position
+        const newPos = getNewPosition(oldPos, direction);
+        const hp = store.getState().player.hp
+        const att = store.getState().mage.att
+        if (!checkPlayer(newPos)) {
+            const newHp = hp - att
+            store.dispatch({
+                type: "move_Player",
+                payload: {
+                    hp: newHp
+                }
+            })
+        }
+    }
+
     function observeObstacles(oldPos, newPos) {
         const tiles = store.getState().map.tiles
         const y = newPos[1] / spriteSize;
@@ -112,7 +135,7 @@ export default function actions(projectile) {
         }
 
         if (direction == "East") {
-            if (observeBoundaries(oldPos, newPos) && observeObstacles(oldPos, newPos)) {
+            if (observeBoundaries(oldPos, newPos) && observeObstacles(oldPos, newPos) && checkPlayer(newPos)) {
                 return {
                     position: [fireballPos[0] + spriteSize, fireballPos[1]]
                 }
@@ -125,7 +148,7 @@ export default function actions(projectile) {
             }
         }
         else if (direction == "West") {
-            if (observeBoundaries(oldPos, newPos) && observeObstacles(oldPos, newPos)) {
+            if (observeBoundaries(oldPos, newPos) && observeObstacles(oldPos, newPos) && checkPlayer(newPos)) {
                 return {
                     position: [fireballPos[0] - spriteSize, fireballPos[1]]
                 }

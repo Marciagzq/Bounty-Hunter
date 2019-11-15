@@ -15,7 +15,6 @@ export default function move(monster) {
       console.log("locked is " + locked)
       console.log(dir)
       const newMageInfo = checkMove(dir)
-      const fbInfo = checkMove(dir)[1]
       console.log('increment timer')
       console.log(checkMove(dir))
       // checkAttack();

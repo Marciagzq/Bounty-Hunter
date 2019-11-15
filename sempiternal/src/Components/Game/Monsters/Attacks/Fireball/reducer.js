@@ -4,7 +4,7 @@ const initialState = {
     isLive: false,
     direction: "West", 
     currentCD: 0,
-    maxCD: 2,
+    maxCD: 4,
 }
 
 const fireballReducer = (state = initialState, action) => {

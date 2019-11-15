@@ -3,6 +3,7 @@ const initialState = {
     position: [320, 280],
     direction: "West",
     currentCD: 0,
+    att: 3,
     maxCD: 3,
     attacking: false,
     locked: false,
