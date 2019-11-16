@@ -86,7 +86,7 @@ export default function actions(projectile) {
                 }
             })
             if (hp == 1) {
-                alert("You're dead!!!")
+                alert("You're dead!!! Try Again!!!")
                 window.location.reload()
             }
         }
