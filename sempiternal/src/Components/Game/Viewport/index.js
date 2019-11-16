@@ -1,15 +1,20 @@
 import React from "react";
 import World from "../World/index"
+import "./viewport.css"
+var bg=require("../../../Tiles/grass.png")
+
+
 
 function Viewport() {
-    return (<div
+    return (
+    <div 
         style={{
             position: "relative",
             width: "800px",
             height: "400px",
             margin: "20px auto",
-            overflow: "hidden",
-            backgroundColor: "black"
+            // overflow: "hidden",
+            backgroundImage: "url("+bg+")"
         }}
     >
         <World />

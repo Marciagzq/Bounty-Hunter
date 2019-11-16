@@ -119,7 +119,7 @@ class Register extends Component {
                         </div>
                         <div className="col s12 center-align">
                             <footer>
-                                <h6>© 2019 Gaming form. All Rights Reserved</h6>
+                                <h6>© 2019 Gaming App. All Rights Reserved</h6>
                                 <h6 className="h6-color"> Created by Michael Vega & Marcia Zegarra</h6>
                             </footer>
                         </div>
