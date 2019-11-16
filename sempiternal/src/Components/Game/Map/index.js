@@ -72,11 +72,6 @@ function Map(props) {
             {
                 props.map.tiles.map(row => <MapRow tiles={row} />)
             }
-<<<<<<< HEAD
-    { props.mage.isAlive ? <Mage pos={[240, 40]} /> : " " }
-    { props.fireball.isLive ? <Fireball fbPos={[magePos[0] - spriteSize, magePos[1]]} /> : " " }
-    { props.hit.isLive ? <Hit fbPos={[playerPos[0] - spriteSize, playerPos[1]]} /> : " " }
-=======
            {props.mage.isAlive ? <Mage pos={[240, 40]}/> : " "}
            {props.mage2.isAlive ? <Mage2 pos={[120, 600]}/> : " "}
            {props.mage3.isAlive ? <Mage3 pos={[1200, 240]}/> : " "}
@@ -84,7 +79,6 @@ function Map(props) {
            {props.fireball2.isLive ? <Fireball2 fbPos={[magePos2[0], magePos2[1]]} /> : " "}
            {props.fireball3.isLive ? <Fireball3 fbPos={[magePos3[0], magePos3[1]]} /> : " "}
            {props.hit.isLive ? <Hit fbPos={[playerPos[0], playerPos[1]]} /> : " "}
->>>>>>> e2bbe1b23101d05d8b9e4bf52d8cf1d318e8c00e
         </div >
     )
 }
