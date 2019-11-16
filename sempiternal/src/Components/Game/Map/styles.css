@@ -1,6 +1,6 @@
 .tile {
     display: inline-flex;
-    background-color: green;
+    /* background-color: transparent; */
 }
 
 .rock {
@@ -8,9 +8,26 @@
 }
 
 .grass {
-    background-color: green;
+    background-image: url("../../../Tiles/grass.png");
 }
 
 .tree {
     background-image: url("../../../Tiles/tree.png");
+}
+.well {
+    background-image: url("../../../Tiles/well.png");
+}
+.gold {
+    background-image: url("../../../Tiles/gold.png");
+}
+
+.fountain {
+    background-image: url("../../../Tiles/fountain.png");
+}
+
+.sword {
+    background-image: url("../../../Tiles/sword.png");
+}
+.treasure {
+    background-image: url("../../../Tiles/treasure.png");
 }

@@ -1,6 +1,6 @@
 import React from "react";
-import {connect} from "react-redux";
-import {spriteSize} from "../../../Config/constants"
+import { connect } from "react-redux";
+import { spriteSize } from "../../../Config/constants"
 import Mage from "../Monsters/Mage/mage"
 import Mage2 from "../Monsters/Mage2/mage"
 import Mage3 from "../Monsters/Mage3/mage"
@@ -19,6 +19,16 @@ function getTileSprite(type) {
             return "rock"
         case 6:
             return "tree"
+        case 7:
+            return "well"
+        case 8:
+            return "gold"
+        case 9:
+            return "fountain"
+        case 10:
+            return "sword"
+        case 11:
+            return "treasure"
     }
 }
 
@@ -34,9 +44,9 @@ function MapTile(props) {
 
 function MapRow(props) {
     return <div className="gameRow"
-    style={{
-        height: spriteSize
-    }}>
+        style={{
+            height: spriteSize
+        }}>
         {
             props.tiles.map(tile => <MapTile tile={tile} />)
         }
@@ -56,7 +66,6 @@ function Map(props) {
                 left: props.player.left,
                 width: "1600px",
                 height: "800px",
-                backgroundColor: "green",
                 // border: "4px solid white",
             }}
         >
@@ -70,7 +79,7 @@ function Map(props) {
            {props.fireball2.isLive ? <Fireball2 fbPos={[magePos2[0], magePos2[1]]} /> : " "}
            {props.fireball3.isLive ? <Fireball3 fbPos={[magePos3[0], magePos3[1]]} /> : " "}
            {props.hit.isLive ? <Hit fbPos={[playerPos[0], playerPos[1]]} /> : " "}
-        </div>
+        </div >
     )
 }
 //connects the state from map to the store
