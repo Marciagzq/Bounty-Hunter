@@ -5,7 +5,7 @@ import React from "react";
 
 export default function move(monster) {
 
-  
+
 
   const path = window.location.href.split("/")
   console.log(path)
@@ -288,11 +288,11 @@ export default function move(monster) {
         console.log("attack!!!")
         return (
           {
-          position: magePos,
-          direction,
-          currentCD: 1,
-          attacking: true,
-        }
+            position: magePos,
+            direction,
+            currentCD: 1,
+            attacking: true,
+          }
         )
       }
       else if (currentCD !== 0 && currentCD !== maxCD) {

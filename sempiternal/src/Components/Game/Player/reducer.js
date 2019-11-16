@@ -17,6 +17,8 @@ const initialState = {
     map: 1,
     top: 80,
     left: 360,
+    killCount: 0,
+    winCount: 3
 }
 
 const playerReducer = (state = initialState, action) => {

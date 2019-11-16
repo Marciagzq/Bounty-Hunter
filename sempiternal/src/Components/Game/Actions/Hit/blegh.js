@@ -11,6 +11,10 @@ export default function actions(projectile) {
         checkMon();
         checkMon2();
         checkMon3();
+        if (store.getState().player.killCount == 3) {
+            alert("You successfully killed all the targets!!!")
+            window.location.reload();
+        }
         store.dispatch({
             type: "hit",
             payload: {
@@ -18,10 +22,10 @@ export default function actions(projectile) {
                 isLive: true
             }
         })
-        
+
     }
 
-    function getPos (){
+    function getPos() {
         const pos = store.getState().player.position
         switch (store.getState().player.direction) {
             case "North":
@@ -41,6 +45,7 @@ export default function actions(projectile) {
         const ad = store.getState().player.ad
         const hp = store.getState().mage.hp
         const newHp = hp - ad;
+        const live = store.getState().mage.isAlive
         console.log("mage hp: " + newHp)
         console.log("OG mage hp: " + hp)
         console.log("player ad: " + ad)
@@ -53,22 +58,30 @@ export default function actions(projectile) {
                     hp: newHp
                 }
             })
-            if (hp == 0) {
-                alert("Mage is dead!");
-                store.dispatch({
-                    type: "move_Mage",
-                    payload: {
-                        isAlive: false
-                    }
-                })
-                store.dispatch({
-                    type: "move",
-                    payload: {
-                        isLive: false
-                    }
-                })
-            }
-            
+        }
+        if (hp == 0 && live) {
+            store.dispatch({
+                type: "move_Mage",
+                payload: {
+                    isAlive: false
+                }
+            })
+            store.dispatch({
+                type: "move",
+                payload: {
+                    isLive: false
+                }
+            })
+            const kc = store.getState().player.killCount
+            const newKc = kc + 1
+            store.dispatch({
+                type: "move_Player",
+                payload: {
+                    killCount: newKc
+                }
+            })
+
+
         }
     }
 
@@ -78,6 +91,7 @@ export default function actions(projectile) {
         const ad = store.getState().player.ad
         const hp = store.getState().mage2.hp
         const newHp = hp - ad;
+        const live = store.getState().mage2.isAlive
         console.log("mage hp: " + newHp)
         console.log("OG mage hp: " + hp)
         console.log("player ad: " + ad)
@@ -90,23 +104,32 @@ export default function actions(projectile) {
                     hp: newHp
                 }
             })
-            if (hp == 0) {
-                alert("Mage is dead!");
-                store.dispatch({
-                    type: "move_Mage2",
-                    payload: {
-                        isAlive: false
-                    }
-                })
-                store.dispatch({
-                    type: "move2",
-                    payload: {
-                        isLive: false
-                    }
-                })
-            }
-            
         }
+        if (hp == 0 && live) {
+            alert("Mage is dead!");
+            store.dispatch({
+                type: "move_Mage2",
+                payload: {
+                    isAlive: false
+                }
+            })
+            store.dispatch({
+                type: "move2",
+                payload: {
+                    isLive: false
+                }
+            })
+            const kc = store.getState().player.killCount
+            const newKc = kc + 1
+            store.dispatch({
+                type: "move_Player",
+                payload: {
+                    killCount: newKc
+                }
+            })
+        }
+
+
     }
 
     function checkMon3() {
@@ -115,6 +138,7 @@ export default function actions(projectile) {
         const ad = store.getState().player.ad
         const hp = store.getState().mage3.hp
         const newHp = hp - ad;
+        const live = store.getState().mage3.isAlive
         console.log("mage hp: " + newHp)
         console.log("OG mage hp: " + hp)
         console.log("player ad: " + ad)
@@ -127,23 +151,32 @@ export default function actions(projectile) {
                     hp: newHp
                 }
             })
-            if (hp == 0) {
-                alert("Mage is dead!");
-                store.dispatch({
-                    type: "move_Mage3",
-                    payload: {
-                        isAlive: false
-                    }
-                })
-                store.dispatch({
-                    type: "move3",
-                    payload: {
-                        isLive: false
-                    }
-                })
-            }
-            
         }
+        if (hp == 0 && live) {
+            alert("Mage is dead!");
+            store.dispatch({
+                type: "move_Mage3",
+                payload: {
+                    isAlive: false
+                }
+            })
+            store.dispatch({
+                type: "move3",
+                payload: {
+                    isLive: false
+                }
+            })
+            const kc = store.getState().player.killCount;
+            const newKc = kc + 1;
+            store.dispatch({
+                type: "move_Player",
+                payload: {
+                    killCount: newKc
+                }
+            })
+        }
+
+
     }
 
     function checkDir(pos, direction) {
