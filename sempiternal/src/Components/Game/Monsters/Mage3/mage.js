@@ -6,7 +6,10 @@ import mageSpriteRight from "./Assets/mageRight.gif";
 import mageAttackLeft from "./Assets/mageAttackLeft.gif";
 import mageAttackRight from "./Assets/mageAttackRight.gif";
 import move from "./move";
-import store from "../../../../Config/store";
+import store from "../../../../Config/store"
+import player from "../../Player/player";
+import Fireball from "../Attacks/Fireball/fireball"
+import {spriteSize} from "../../../../Config/constants"
 
 let hasLoaded = 0;
 
