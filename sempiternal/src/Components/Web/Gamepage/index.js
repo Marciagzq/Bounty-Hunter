@@ -1,7 +1,6 @@
 import React from 'react';
 import Viewport from "../../Game/Viewport/index"
-import Alert from "./sound";
-import HUD from "../../Game/UI/HUD/hud"
+import Clip from "./sound";
 import { Link } from 'react-router-dom';
 import "./game.css"
 
@@ -12,7 +11,7 @@ class Gamepage extends React.Component {
         <Link to="/Intro">
           Exit Game
         </Link>
-        <Alert />
+        <Clip />
         <Viewport />
         {/* <HUD /> */}
 

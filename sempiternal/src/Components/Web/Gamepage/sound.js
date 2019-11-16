@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import soundfile from '../../../data/sounds/lvl1.mp3'
 import Sound from 'react-sound'
 
-export default class Alert extends Component {
+export default class Clip extends Component {
 render() {
  return (
    <Sound
