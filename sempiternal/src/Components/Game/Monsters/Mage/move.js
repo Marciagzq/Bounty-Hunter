@@ -47,9 +47,15 @@ export default function move(monster) {
             position: [10000000, 10000000]
           }
         })
+        store.dispatch({
+          type: "move_Mage",
+          payload: {
+            position: [10000000, 100000000]
+          }
+        })
         clearInterval(interval)
       }
-    }, 700)
+    }, 500)
   }
   //gets new position for the mage if he is moving
   function getNewPosition(oldPos, direction) {

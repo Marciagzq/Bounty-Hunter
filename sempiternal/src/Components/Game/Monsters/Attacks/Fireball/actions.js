@@ -77,7 +77,7 @@ export default function actions(projectile) {
         const newPos = getNewPosition(oldPos, direction);
         const hp = store.getState().player.hp
         const att = store.getState().mage.att
-        if (!checkPlayer(newPos)) {
+        if (!checkPlayer(newPos) && store.getState().fireball.isLive) {
             const newHp = hp - att
             store.dispatch({
                 type: "move_Player",
@@ -85,7 +85,7 @@ export default function actions(projectile) {
                     hp: newHp
                 }
             })
-            if (hp == 0) {
+            if (hp == 1) {
                 alert("You're dead!!!")
                 window.location.reload()
             }
@@ -146,7 +146,7 @@ export default function actions(projectile) {
             }
             else {
                 return {
-                    position: [magePos[0] + spriteSize, magePos[1]],
+                    position: [magePos[0], magePos[1]],
                     isLive: false
                 }
             }
@@ -159,7 +159,7 @@ export default function actions(projectile) {
             }
             else {
                 return {
-                    position: [magePos[0] - spriteSize, magePos[1]],
+                    position: [magePos[0], magePos[1]],
                     isLive: false
                 }
             }
