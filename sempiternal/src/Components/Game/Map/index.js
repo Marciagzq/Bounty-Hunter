@@ -29,6 +29,16 @@ function getTileSprite(type) {
             return "sword"
         case 11:
             return "treasure"
+        case 12:
+            return "rock1"
+        case 13:
+            return "shield"
+        case 14:
+            return "bridge1"
+        case 15:
+            return "bridge2"
+        case 16:
+            return "bridge3"
     }
 }
 
@@ -72,13 +82,13 @@ function Map(props) {
             {
                 props.map.tiles.map(row => <MapRow tiles={row} />)
             }
-           {props.mage.isAlive ? <Mage pos={[240, 40]}/> : " "}
-           {props.mage2.isAlive ? <Mage2 pos={[120, 600]}/> : " "}
-           {props.mage3.isAlive ? <Mage3 pos={[1200, 240]}/> : " "}
-           {props.fireball.isLive ? <Fireball fbPos={[magePos[0], magePos[1]]} /> : " "}
-           {props.fireball2.isLive ? <Fireball2 fbPos={[magePos2[0], magePos2[1]]} /> : " "}
-           {props.fireball3.isLive ? <Fireball3 fbPos={[magePos3[0], magePos3[1]]} /> : " "}
-           {props.hit.isLive ? <Hit fbPos={[playerPos[0], playerPos[1]]} /> : " "}
+            {props.mage.isAlive ? <Mage pos={[240, 40]} /> : " "}
+            {props.mage2.isAlive ? <Mage2 pos={[120, 600]} /> : " "}
+            {props.mage3.isAlive ? <Mage3 pos={[1200, 240]} /> : " "}
+            {props.fireball.isLive ? <Fireball fbPos={[magePos[0], magePos[1]]} /> : " "}
+            {props.fireball2.isLive ? <Fireball2 fbPos={[magePos2[0], magePos2[1]]} /> : " "}
+            {props.fireball3.isLive ? <Fireball3 fbPos={[magePos3[0], magePos3[1]]} /> : " "}
+            {props.hit.isLive ? <Hit fbPos={[playerPos[0], playerPos[1]]} /> : " "}
         </div >
     )
 }

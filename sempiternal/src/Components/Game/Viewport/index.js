@@ -13,7 +13,7 @@ function Viewport() {
             width: "800px",
             height: "400px",
             margin: "20px auto",
-            // overflow: "hidden",
+            overflow: "hidden",
             backgroundImage: "url("+bg+")"
         }}
     >
