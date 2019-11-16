@@ -85,6 +85,10 @@ export default function actions(projectile) {
                     hp: newHp
                 }
             })
+            if (hp == 0) {
+                alert("You're dead!!!")
+                window.location.reload()
+            }
         }
     }
 

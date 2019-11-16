@@ -8,6 +8,7 @@ export default function actions(projectile) {
         const playerPos = store.getState().player.position
         const direction = store.getState().player.direction
         const newPos = checkDir(playerPos, direction)
+        checkMon();
         store.dispatch({
             type: "hit",
             payload: {
@@ -15,7 +16,60 @@ export default function actions(projectile) {
                 isLive: true
             }
         })
+        
     }
+
+    function getPos (){
+        const pos = store.getState().player.position
+        switch (store.getState().player.direction) {
+            case "North":
+                return [pos[0], pos[1] - spriteSize]
+            case "South":
+                return [pos[0], pos[1] + spriteSize]
+            case "West":
+                return [pos[0] - spriteSize, pos[1]]
+            case "East":
+                return [pos[0] + spriteSize, pos[1]]
+        }
+    }
+
+    function checkMon() {
+        const mPos = store.getState().mage.position
+        const hPos = getPos();
+        const ad = store.getState().player.ad
+        const hp = store.getState().mage.hp
+        const newHp = hp - ad;
+        console.log("mage hp: " + newHp)
+        console.log("OG mage hp: " + hp)
+        console.log("player ad: " + ad)
+        console.log("mage pos: " + mPos)
+        console.log("hit pos: " + hPos)
+        if (mPos[0] == hPos[0] && mPos[1] == hPos[1]) {
+            store.dispatch({
+                type: "move_Mage",
+                payload: {
+                    hp: newHp
+                }
+            })
+            if (hp == 0) {
+                alert("Mage is dead!");
+                store.dispatch({
+                    type: "move_Mage",
+                    payload: {
+                        isAlive: false
+                    }
+                })
+                store.dispatch({
+                    type: "move",
+                    payload: {
+                        isLive: false
+                    }
+                })
+            }
+            
+        }
+    }
+
     function checkDir(pos, direction) {
         switch (direction) {
             case "North":

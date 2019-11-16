@@ -5,13 +5,16 @@ import React from "react";
 
 export default function move(monster) {
 
+  
+
   const path = window.location.href.split("/")
   console.log(path)
   if (path[3] === "game") {
-    setInterval(function () {
+    let interval = setInterval(function () {
       const currentCD = store.getState().mage.currentCD
       const dir = store.getState().mage.direction
       const locked = store.getState().mage.locked
+      const hp = store.getState().mage.hp
       console.log("locked is " + locked)
       console.log(dir)
       const newMageInfo = checkMove(dir)
@@ -37,7 +40,16 @@ export default function move(monster) {
           }
         })
       }
-    }, 500)
+      if (hp == 0) {
+        store.dispatch({
+          type: "move",
+          payload: {
+            position: [10000000, 10000000]
+          }
+        })
+        clearInterval(interval)
+      }
+    }, 700)
   }
   //gets new position for the mage if he is moving
   function getNewPosition(oldPos, direction) {

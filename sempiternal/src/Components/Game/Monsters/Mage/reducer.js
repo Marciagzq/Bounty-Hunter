@@ -4,7 +4,7 @@ const initialState = {
     direction: "West",
     currentCD: 0,
     hp: 9,
-    att: 3,
+    att: 1,
     maxCD: 3,
     attacking: false,
     locked: false,
