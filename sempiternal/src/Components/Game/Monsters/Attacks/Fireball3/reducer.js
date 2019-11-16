@@ -9,7 +9,7 @@ const initialState = {
 
 const fireball3Reducer = (state = initialState, action) => {
     switch (action.type) {
-        case "move":
+        case "move3":
             return {
                 ...state,
                 ...action.payload

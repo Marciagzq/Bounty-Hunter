@@ -51,7 +51,7 @@ export default function move(monster) {
         })
         clearInterval(interval)
       }
-    }, 500)
+    }, 400)
   }
   //gets new position for the mage if he is moving
   function getNewPosition(oldPos, direction) {

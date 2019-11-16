@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import actions from "./actions";
 import store from "../../../../../Config/store";
 
-function Fireball(props)  {
+function Fireball3(props)  {
 //     setInterval(function() {
 //         if(props.fbPos && !props.isLive) {
 //         console.log("test")
@@ -36,10 +36,10 @@ function Fireball(props)  {
 function mapStateToProps(state) {
     return {
         //by using ... it takes all of the properties of the Mage and spreads them out for us
-        ...state.fireball,
+        ...state.fireball3,
     }
 }
 
 //first set is for mapStateToProps and mapDispatchToProps
 //second set is for Mage
-export default connect(mapStateToProps)(actions(Fireball)); 
+export default connect(mapStateToProps)(actions(Fireball3)); 

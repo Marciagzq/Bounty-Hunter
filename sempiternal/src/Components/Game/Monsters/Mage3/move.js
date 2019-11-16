@@ -11,10 +11,10 @@ export default function move(monster) {
   console.log(path)
   if (path[3] === "game") {
     let interval = setInterval(function () {
-      const currentCD = store.getState().mage.currentCD
-      const dir = store.getState().mage.direction
-      const locked = store.getState().mage.locked
-      const hp = store.getState().mage.hp
+      const currentCD = store.getState().mage3.currentCD
+      const dir = store.getState().mage3.direction
+      const locked = store.getState().mage3.locked
+      const hp = store.getState().mage3.hp
       console.log("locked is " + locked)
       console.log(dir)
       const newMageInfo = checkMove(dir)
@@ -27,14 +27,14 @@ export default function move(monster) {
       })
       if (locked) {
         store.dispatch({
-          type: "move_Mage",
+          type: "move_Mage3",
           payload: newMageInfo
 
         })
       }
-      if (store.getState().mage.attacking) {
+      if (store.getState().mage3.attacking) {
         store.dispatch({
-          type: "move",
+          type: "move3",
           payload: {
             isLive: true
           }
@@ -42,20 +42,20 @@ export default function move(monster) {
       }
       if (hp == 0) {
         store.dispatch({
-          type: "move",
+          type: "move3",
           payload: {
             position: [10000000, 10000000]
           }
         })
         store.dispatch({
-          type: "move_Mage",
+          type: "move_Mage3",
           payload: {
             position: [10000000, 100000000]
           }
         })
         clearInterval(interval)
       }
-    }, 500)
+    }, 400)
   }
   //gets new position for the mage if he is moving
   function getNewPosition(oldPos, direction) {
@@ -100,7 +100,7 @@ export default function move(monster) {
   //checks if player is in sight
   function checkSight() {
     const playerPos = store.getState().player.position
-    const magePos = store.getState().mage.position
+    const magePos = store.getState().mage3.position
     if ((
       (playerPos[0] < magePos[0] + (4 * spriteSize) && playerPos[0] > magePos[0])
       &&
@@ -130,7 +130,7 @@ export default function move(monster) {
       ((playerPos[1] > magePos[1] - (4 * spriteSize) && playerPos[1] < magePos[1]) && (playerPos[0] == magePos[0]))
     ) {
       store.dispatch({
-        type: "move_Mage",
+        type: "move_Mage3",
         payload: {
           locked: true
         }
@@ -162,12 +162,12 @@ export default function move(monster) {
   //moving function for the mage
   function checkMove(direction) {
     console.log("this is working")
-    const oldPos = store.getState().mage.position
+    const oldPos = store.getState().mage3.position
     const playerPos = store.getState().player.position
-    const magePos = store.getState().mage.position
+    const magePos = store.getState().mage3.position
     // const direction = store.getState().mage.direction
-    const currentCD = store.getState().mage.currentCD
-    const maxCD = store.getState().mage.maxCD
+    const currentCD = store.getState().mage3.currentCD
+    const maxCD = store.getState().mage3.maxCD
 
     //checks  if player y pos is equal to mage y pos
     if (playerPos[1] != magePos[1]) {
