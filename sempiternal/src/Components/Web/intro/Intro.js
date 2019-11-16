@@ -22,7 +22,7 @@ class Intro extends Component {
                         <h4>
                             <b>Hey there,</b> {user.name.split(" ")[0]}
                             <p className="flow-text grey-text text-darken-1">
-                                I hope to see you soon!
+                                I hope you had some fun! See you soon!
                             </p>
                         </h4>
                         <button className="btn btn-large waves-effect waves-light hoverable blue accent-3" style={{
