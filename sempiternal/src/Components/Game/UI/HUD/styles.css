@@ -1,7 +1,7 @@
 .hud {
     width: 400px;
     height: 81.5px;
-    /* margin-left: 90px; */
+    margin-left: 90px;
     /* background-color: lightblue; */
     /* background-position: center; */
     z-index: 4;

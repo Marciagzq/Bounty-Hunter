@@ -21,6 +21,8 @@
 }
 
 .hpNum {
+    position: relative;
+    top: -4px;
     z-index: 15;
-    margin-left: 57px;
+    margin-left: 5px;
 }

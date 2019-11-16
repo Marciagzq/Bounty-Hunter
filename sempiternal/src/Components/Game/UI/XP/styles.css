@@ -1,7 +1,7 @@
 .xpBar {
     position: relative;
-    top: -32px;
-    left: -169px;
+    top: -33px;
+    left: -168px;
     height: 20px;
     width: 175px;
     /* margin-left: 150px; */
@@ -22,6 +22,8 @@
 }
 
 .xpNum {
+    position: relative;
+    top: -5px;
     z-index: 15;
     margin-left: 75px;
 }
