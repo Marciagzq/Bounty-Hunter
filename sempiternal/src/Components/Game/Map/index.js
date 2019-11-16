@@ -2,9 +2,13 @@ import React from "react";
 import { connect } from "react-redux";
 import { spriteSize } from "../../../Config/constants"
 import Mage from "../Monsters/Mage/mage"
+import Mage2 from "../Monsters/Mage2/mage"
+import Mage3 from "../Monsters/Mage3/mage"
 import Hit from "../Actions/Hit/index"
 import store from "../../../Config/store"
 import Fireball from "../Monsters/Attacks/Fireball/fireball"
+import Fireball2 from "../Monsters/Attacks/Fireball2/fireball"
+import Fireball3 from "../Monsters/Attacks/Fireball3/fireball"
 import "./styles.css"
 
 function getTileSprite(type) {
@@ -51,6 +55,8 @@ function MapRow(props) {
 
 function Map(props) {
     const magePos = store.getState().mage.position
+    const magePos2 = store.getState().mage2.position
+    const magePos3 = store.getState().mage3.position
     const playerPos = store.getState().player.position
     return (
         <div
@@ -66,10 +72,20 @@ function Map(props) {
             {
                 props.map.tiles.map(row => <MapRow tiles={row} />)
             }
-            {props.mage.isAlive ? <Mage pos={[240, 40]} /> : " "}
-            {props.fireball.isLive ? <Fireball fbPos={[magePos[0] - spriteSize, magePos[1]]} /> : " "}
-            {props.hit.isLive ? <Hit fbPos={[playerPos[0] - spriteSize, playerPos[1]]} /> : " "}
-        </div>
+<<<<<<< HEAD
+    { props.mage.isAlive ? <Mage pos={[240, 40]} /> : " " }
+    { props.fireball.isLive ? <Fireball fbPos={[magePos[0] - spriteSize, magePos[1]]} /> : " " }
+    { props.hit.isLive ? <Hit fbPos={[playerPos[0] - spriteSize, playerPos[1]]} /> : " " }
+=======
+           {props.mage.isAlive ? <Mage pos={[240, 40]}/> : " "}
+           {props.mage2.isAlive ? <Mage2 pos={[120, 600]}/> : " "}
+           {props.mage3.isAlive ? <Mage3 pos={[1200, 240]}/> : " "}
+           {props.fireball.isLive ? <Fireball fbPos={[magePos[0], magePos[1]]} /> : " "}
+           {props.fireball2.isLive ? <Fireball2 fbPos={[magePos2[0], magePos2[1]]} /> : " "}
+           {props.fireball3.isLive ? <Fireball3 fbPos={[magePos3[0], magePos3[1]]} /> : " "}
+           {props.hit.isLive ? <Hit fbPos={[playerPos[0], playerPos[1]]} /> : " "}
+>>>>>>> e2bbe1b23101d05d8b9e4bf52d8cf1d318e8c00e
+        </div >
     )
 }
 //connects the state from map to the store

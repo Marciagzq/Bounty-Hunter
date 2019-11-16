@@ -7,23 +7,23 @@ export default function actions(projectile) {
     console.log(path)
     if (path[3] === "game") {
         setInterval(function () {
-            const currentCD = store.getState().fireball.currentCD
-            const maxCD = store.getState().fireball.maxCD
-            const locked = store.getState().fireball.isLive
-            const magePos = store.getState().mage.position
+            const currentCD = store.getState().fireball3.currentCD
+            const maxCD = store.getState().fireball3.maxCD
+            const locked = store.getState().fireball3.isLive
+            const magePos = store.getState().mage3.position
             const newFireballInfo = checkMove();
             hitPlayer();
             checkMove();
             if (locked) {
                 store.dispatch({
-                    type: "move",
+                    type: "move3",
                     payload: newFireballInfo
 
                 })
                 if (currentCD == 0) {
                     console.log("attack!!!")
                     store.dispatch({
-                        type: "move",
+                        type: "move3",
                         payload: {
                             currentCD: 1,
                             isLive: true,
@@ -34,7 +34,7 @@ export default function actions(projectile) {
                     console.log("Attack is on cd")
                     const newCD = currentCD + 1;
                     store.dispatch({
-                        type: "move",
+                        type: "move3",
                         payload: {
                             currentCD: newCD
                         }
@@ -43,7 +43,7 @@ export default function actions(projectile) {
                 else if (currentCD == maxCD) {
                     console.log("CD reset")
                     store.dispatch({
-                        type: "move",
+                        type: "move3",
                         payload: {
                             currentCD: 0,
                             isLive: false,
@@ -72,12 +72,12 @@ export default function actions(projectile) {
     }
 
     function hitPlayer(){
-        const direction = store.getState().fireball.direction
-        const oldPos = store.getState().fireball.position
+        const direction = store.getState().fireball3.direction
+        const oldPos = store.getState().fireball3.position
         const newPos = getNewPosition(oldPos, direction);
         const hp = store.getState().player.hp
-        const att = store.getState().mage.att
-        if (!checkPlayer(newPos) && store.getState().fireball.isLive) {
+        const att = store.getState().mage3.att
+        if (!checkPlayer(newPos) && store.getState().fireball3.isLive) {
             const newHp = hp - att
             store.dispatch({
                 type: "move_Player",
@@ -108,18 +108,18 @@ export default function actions(projectile) {
     //moving function for the mage
     function checkMove() {
         console.log("this is working")
-        const direction = store.getState().fireball.direction
-        const oldPos = store.getState().fireball.position
-        const fireballPos = store.getState().fireball.position
-        const mageDir = store.getState().mage.direction
+        const direction = store.getState().fireball3.direction
+        const oldPos = store.getState().fireball3.position
+        const fireballPos = store.getState().fireball3.position
+        const mageDir = store.getState().mage3.direction
         const newPos = getNewPosition(oldPos, direction);
-        const magePos = store.getState().mage.position
+        const magePos = store.getState().mage3.position
 
-        const isLive = store.getState().fireball.isLive
+        const isLive = store.getState().fireball3.isLive
 
         if (!isLive && mageDir == "West") {
             store.dispatch({
-                type: "move",
+                type: "move3",
                 payload: {
                     position: [magePos[0] - spriteSize, magePos[1]],
                     direction: "West"
@@ -129,7 +129,7 @@ export default function actions(projectile) {
         }
         else if (!isLive && mageDir == "East") {
             store.dispatch({
-                type: "move",
+                type: "move3",
                 payload: {
                     position: [magePos[0] + spriteSize, magePos[1]],
                     direction: "East"

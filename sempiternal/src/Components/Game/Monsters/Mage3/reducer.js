@@ -1,6 +1,6 @@
 const initialState = {
     //position along x and y axis of the player
-    position: [320, 280],
+    position: [40, 400],
     direction: "West",
     currentCD: 0,
     hp: 9,
@@ -11,14 +11,14 @@ const initialState = {
     isAlive : true,
 }
 
-const mageReducer = (state = initialState, action) => {
+const mage3Reducer = (state = initialState, action) => {
     switch (action.type) {
-        case "move_Mage":
+        case "move_Mage3":
             return {
                 ...state,
                 ...action.payload
             }
-        case "set_Pos":
+        case "set_Pos3":
             return {
                 ...state,
                 ...action.payload
@@ -28,4 +28,4 @@ const mageReducer = (state = initialState, action) => {
     }
 }
 
-export default mageReducer
+export default mage3Reducer
