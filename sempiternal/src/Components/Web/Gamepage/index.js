@@ -19,7 +19,7 @@ class Gamepage extends React.Component {
         <div className="col s12 center-align">
                             <footer>
                                 <h6 className="game-footer">© 2019 Gaming App. All Rights Reserved</h6>
-                                <h6 className="h6-color"> Created by Michael Vega & Marcia Zegarra</h6>
+                                <h6 className="h6-color"> Created by Michael Vega and Marcia Zegarra</h6>
                             </footer>
                         </div>
       </div>
