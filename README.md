@@ -1,5 +1,5 @@
-#University of Central Florida
-###Coding Bootcamp 
+# University of Central Florida
+## Coding Bootcamp 
 #### Full Stack Developer 
 ![alt text](https://portfolium1.cloudimg.io/s/crop/128x128/https://cdn.portfolium.com/ugcs3%2Fedu%2F9tDF4wvqRdewUvBbZ97x_PegasusBrightGold150x150.png "Logo Title Text 1")
 - - -
@@ -57,7 +57,7 @@ To learn more about Mongoose, click [here!](https://www.npmjs.com/package/mongoo
 
 
 
-###[Here you can execute my project](https://ucf-pr3.herokuapp.com/)
+### [Here you can execute my project](https://ucf-pr3.herokuapp.com/)
 
 ![pic](./sempiternal/src/Tiles/screenshot.png)
 
