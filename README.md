@@ -27,9 +27,9 @@ Bounty Hunter is a web application that contains a game as a main user interacti
     * Must meet good quality coding standards
     * Must not expose sensitive API key information on the server
 
-#
+    #
 - - - - 
-#
+    #
 ##### Regarding of the code
 
 *  Libraries and languages used for accomplished this assignment 
