@@ -5,7 +5,7 @@
 - - -
 
 ### Bounty Hunter
-
+A dynamic video game built inside a web application that uses a secure authentication system and saves the user’s information in a responsible database.
 
 
 **Overview Assignment**
