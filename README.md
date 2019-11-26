@@ -11,23 +11,6 @@ A dynamic video game built inside a web application that uses a secure authentic
 **Overview Assignment**
 
 Bounty Hunter is a web application that contains a game as a main user interaction behavior. It requires an user registration and log. The information is safety placed on a remote database built with add-ons on Heroku. 
-
-
-**Requirements**
-* The app must meet the following specs:
-    * Must use ReactJS
-    * Must use a Node and Express Web Server
-    * Must be backed by a MySQL or MongoDB Database with a Sequelize or Mongoose ORM
-    * Must have both GET and POST routes for retrieving and adding new data
-    * Must be deployed using Heroku
-    * Must utilize at least two libraries, packages, or technologies that we haven’t discussed
-    * Must allow for or involve the authentication of users in some way
-    * Must have a polished frontend/UI
-    * Must have folder structure that meets MVC Paradigm
-    * Must meet good quality coding standards
-    * Must not expose sensitive API key information on the server
-
-    
 - - - - 
 
 
