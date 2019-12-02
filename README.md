@@ -15,6 +15,7 @@ Bounty Hunter is a web application that contains a game as a main user interacti
 
 
 ##### Regarding of the code
+###### [Link to the original repository where you can see my participation based on commits.](https://github.com/MV5174/Project3)
 
 *  Libraries and languages used for accomplished this assignment 
 
@@ -44,6 +45,7 @@ To learn more about Mongoose, click [here!](https://www.npmjs.com/package/mongoo
 ### [Here you can execute my project](https://ucf-pr3.herokuapp.com/)
 
 ![pic](./sempiternal/src/Tiles/screenshot.png)
+###### [Link to the original repository where you can see my participation based on commits.](https://github.com/MV5174/Project3)
 
 *If any suggestion, do not hesitate to contact me on my personal email: marcia.gzq@gmail.com
 I would appreciate any comment, I know it may be very beneficial on my professional growth.*
